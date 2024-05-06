@@ -15,6 +15,7 @@ import './Navbar.css'
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -53,7 +54,7 @@ const Navbar = () => {
                     </ListItem>
                 ))} */}
 
-                <ListItem disablePadding>
+                <ListItem disablePadding  component={Link} to="/">
                     <ListItemButton >
                         <ListItemIcon>
                             <HomeIcon />
@@ -61,7 +62,7 @@ const Navbar = () => {
                         <ListItemText primary={"Home"} />
                     </ListItemButton>
                 </ListItem>
-                <ListItem disablePadding>
+                <ListItem disablePadding component={Link} to="/about">
                     <ListItemButton>
                         <ListItemIcon>
                             <InfoIcon />

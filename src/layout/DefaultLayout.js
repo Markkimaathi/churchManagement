@@ -1,12 +1,27 @@
-import React from 'react'
-import Navbar from  '../components/Navbar'
-const DefaultLayout = () => {
-  return (
-    <div>
-      <Navbar/>
+// DefaultLayout.js
+import React, { useState } from 'react';
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
+import '../App.css';
 
-    </div>
-  )
+const DefaultLayout = ({ children }) => {
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
+
+  const OpenSidebar = () => {
+    setOpenSidebarToggle(!openSidebarToggle);
+  };
+
+  return (
+    <div className='grid-container'>
+      <Header OpenSidebar={OpenSidebar}/>
+      <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
+      <div className="main-container">
+        {children}
+      </div>
+    </div> 
+  );
 }
 
-export default DefaultLayout
+export default DefaultLayout;
+
+ 
