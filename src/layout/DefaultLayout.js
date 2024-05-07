@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar';
 import '../App.css';
 import Footer from '../components/Footer';
 
+
 const DefaultLayout = ({ children }) => {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
 
