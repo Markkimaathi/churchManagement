@@ -1,9 +1,14 @@
 import React from 'react'
 import 
- {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify}
+ {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify, BsArrowLeftSquareFill  }
  from 'react-icons/bs'
 
 function Header({OpenSidebar}) {
+
+  const logout= ()=>{
+    localStorage.removeItem('userRole'); 
+    window.location.reload();
+  }
   return (
     <header className='header'>
         <div className='menu-icon'>
@@ -16,6 +21,7 @@ function Header({OpenSidebar}) {
             <BsFillBellFill className='icon'/>
             <BsFillEnvelopeFill className='icon'/>
             <BsPersonCircle className='icon'/>
+            <BsArrowLeftSquareFill  className='icon' onClick={logout}/>
         </div>
     </header>
   )

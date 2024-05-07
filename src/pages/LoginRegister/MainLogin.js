@@ -1,9 +1,10 @@
+// MainLogin.js
 import React, { useState } from "react";
 import './MainLogin.css';
 import { Login } from "./Login";
 import { Register } from "./Register";
 
-function MainLogin() {
+function MainLogin({ setUserRole }) {
   const [currentForm, setCurrentForm] = useState('login');
 
   const toggleForm = (formName) => {
@@ -13,7 +14,7 @@ function MainLogin() {
   return (
     <div className="MainLogin">
       {
-        currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
+        currentForm === "login" ? <Login onFormSwitch={toggleForm} setUserRole={setUserRole} /> : <Register onFormSwitch={toggleForm} />
       }
     </div>
   );

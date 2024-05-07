@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// Login.js
+import React, { useState, useEffect } from "react";
 
 export const Login = (props) => {
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -6,8 +7,10 @@ export const Login = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const userRole = 1;
+        const userRole = 2;
         await localStorage.setItem('userRole', userRole);      
+        props.setUserRole(userRole); 
+         await window.location.reload()
     }
 
     return (    
