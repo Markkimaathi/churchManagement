@@ -1,7 +1,7 @@
 import React from 'react';
 
 const About = () => {
-  // Define information about the church
+  
   const churchInfo = {
     name: "Community Church",
     mission: "To spread love and compassion through service and worship.",

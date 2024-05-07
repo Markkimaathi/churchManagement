@@ -1,8 +1,8 @@
-// DefaultLayout.js
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import '../App.css';
+import Footer from '../components/Footer';
 
 const DefaultLayout = ({ children }) => {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
@@ -18,10 +18,9 @@ const DefaultLayout = ({ children }) => {
       <div className="main-container">
         {children}
       </div>
+      <Footer /> 
     </div> 
   );
 }
 
 export default DefaultLayout;
-
- 
