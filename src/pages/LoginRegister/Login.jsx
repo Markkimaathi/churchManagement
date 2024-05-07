@@ -4,12 +4,13 @@ export const Login = (props) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [pass, setPass] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(phoneNumber);
+        const userRole = 1;
+        await localStorage.setItem('userRole', userRole);      
     }
 
-    return (
+    return (    
         <div className="auth-form-container">
             <h2>Login</h2>
             <form className="login-form" onSubmit={handleSubmit}>
