@@ -16,10 +16,13 @@ const DefaultLayout = ({ children }) => {
     <div className='grid-container'>
       <Header OpenSidebar={OpenSidebar}/>
       <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
+ 
       <div className="main-container">
-        {children}
+        {children}  
+       
       </div>
-      <Footer /> 
+      <Footer />  
+
     </div> 
   );
 }

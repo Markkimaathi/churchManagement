@@ -19,7 +19,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         </li>
         <li className='sidebar-list-item'>
           <a href="/pastoral-care">
-            <BsChatDotsFill className='icon'/> Pastoral Care
+            <BsChatDotsFill className='icon'/> Prayer Requests
           </a>
         </li>
         <li className='sidebar-list-item'>

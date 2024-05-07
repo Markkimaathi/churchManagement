@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DefaultLayout from './layout/DefaultLayout';
 import AdminDashboard from './pages/clergy/AdminDashboard';
 import About from './components/About';
+import MainLogin from './pages/LoginRegister/MainLogin';
 
 function App() {
   return (
+
+    
     <Router>
       <div className="App">
         <DefaultLayout> 
