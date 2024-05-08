@@ -1,13 +1,15 @@
 import React from 'react'
-import './NotFound.css'
+import ErrorIcon from "@mui/icons-material/Error";
+import "./NotFound.css";
+import { Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 const NotFound = () => {
   return (
-    <div className="page-not-found">
-      <h1>Page not found</h1>
-      <p>We're sorry, we couldn't find the page you requested.</p>
-      <p>Try searching for similar questions, browsing our recent questions, or checking out our popular tags.</p>
-      <p>If you feel something is missing that should be here, please contact us.</p>
-    </div>
+    <div className="PageNotFound">
+    <ErrorIcon />
+    <Typography>Page Not Found </Typography>
+    <Link to="/">Home</Link>
+  </div>
   )
 }
 
