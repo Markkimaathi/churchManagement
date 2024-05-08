@@ -1,4 +1,4 @@
-// App.js
+
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DefaultLayout from './layout/DefaultLayout';
@@ -7,6 +7,7 @@ import MemberDashboard from './pages/Member/MemberDashboard';
 import ClergyDashboard from './pages/Clergy/ClergyDashboard';
 import About from './components/About';
 import MainLogin from './pages/LoginRegister/MainLogin';
+import EventsCalendar from './components/EventsCalendar'; 
 
 function App() {
   const [userRole, setUserRole] = useState(localStorage.getItem('userRole')); 
@@ -14,7 +15,7 @@ function App() {
   return (
     <Router>
       {userRole === null ? (
-       <MainLogin setUserRole={setUserRole} />
+        <MainLogin setUserRole={setUserRole} />
       ) : (
         <div className="App">
           <DefaultLayout>
@@ -24,17 +25,12 @@ function App() {
               )}
               {userRole === '1' && (
                 <Route path="/" element={<ClergyDashboard />} />
-
-                
               )}
-
               {userRole === '2' && (
                 <Route path="/" element={<AdminDashboard />} />
-
-
-
               )}
               <Route path="/about" element={<About />} />
+              <Route path="/events-calendar" element={<EventsCalendar />} />
             </Routes>
           </DefaultLayout>
         </div>

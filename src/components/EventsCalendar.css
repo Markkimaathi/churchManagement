@@ -1,0 +1,139 @@
+/* Calendar Container */
+.events-calendar {
+    width: 100%; /* Occupy entire width */
+    max-width: 400px; /* Adjust width as needed */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Calendar Header */
+.react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.react-calendar__navigation button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+}
+
+.react-calendar__navigation button:disabled {
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Calendar Weekday Names */
+.react-calendar__month-view__weekdays {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Calendar Days */
+.react-calendar__month-view__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.react-calendar__tile {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000; /* All days in black color */
+}
+
+.react-calendar__tile--now {
+    background-color: #f0f0f0;
+}
+
+.react-calendar__tile--active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Calendar Footer */
+.react-calendar__navigation__label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.react-calendar__tile--hasActive {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Calendar Overlay */
+.react-calendar__tile--hasActive:active {
+    background-color: #0056b3;
+}
+
+/* Calendar Hover */
+.react-calendar__tile--hover {
+    background-color: #e5f7ff;
+}
+
+/* Calendar Today */
+.react-calendar__tile--now {
+    background-color: #f0f0f0;
+}
+
+/* Calendar Selected Date */
+.react-calendar__tile--active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Calendar Week Numbers */
+.react-calendar__month-view__weekNumbers {
+    display: none;
+}
+
+/* Calendar Tooltip */
+.react-calendar__tile--hasActive:after {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.react-calendar__tile--hasActive:hover:after {
+    opacity: 1;
+}
+
+/* Calendar Today Tooltip */
+.react-calendar__tile--now:after {
+    content: "Today";
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1;
+}

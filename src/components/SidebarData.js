@@ -1,5 +1,8 @@
-import { BsGrid1X2Fill, BsChatDotsFill, BsPersonFill, BsClipboardData, BsMenuButtonWideFill, BsFillGearFill,} from 'react-icons/bs';
+import { BsGrid1X2Fill, BsChatDotsFill, BsPersonFill, BsClipboardData, BsMenuButtonWideFill, BsFillGearFill} from 'react-icons/bs';
 import { IoPerson } from 'react-icons/io5';
+import { RiCalendar2Fill } from 'react-icons/ri';
+import EventsCalendar from './EventsCalendar.js';
+
 // Define sidebar data for the admin role
 export const adminSidebarData = [
   {
@@ -31,6 +34,12 @@ export const adminSidebarData = [
     title: 'Settings',
     icon: BsFillGearFill,
     link: '/settings'
+  }, 
+  {
+    title: 'Events Calendar', 
+    icon: RiCalendar2Fill,
+    link: '/events-calendar',
+    component: EventsCalendar
   }
 ];
 
@@ -50,7 +59,13 @@ export const clergySidebarData = [
     title: 'About',
     icon: BsMenuButtonWideFill,
     link: '/about'
-  }
+  },
+  {
+    title: 'Events Calendar',
+    icon: RiCalendar2Fill,
+    link: '/events-calendar',
+    component: EventsCalendar 
+  },
 ];
 
 // Define sidebar data for the member role
@@ -63,7 +78,13 @@ export const memberSidebarData = [
   {
     title: 'Profile Management',
     icon: IoPerson,
-    link: '/Profile'
+    link: '/profile-management'
+  },
+  {
+    title: 'Events Calendar',
+    icon: RiCalendar2Fill,
+    link: '/events-calendar',
+    component: EventsCalendar 
   },
   {
     title: 'About',
@@ -71,7 +92,3 @@ export const memberSidebarData = [
     link: '/about'
   },
 ];
-
-
-
-
