@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState, useEffect } from "react";
 
 export const Login = (props) => {
@@ -7,7 +6,7 @@ export const Login = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const userRole = 2;
+        const userRole = 0;
         await localStorage.setItem('userRole', userRole);      
         props.setUserRole(userRole); 
          await window.location.reload()

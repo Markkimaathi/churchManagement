@@ -1,12 +1,11 @@
-
-import { BsGrid1X2Fill, BsChatDotsFill, BsPersonFill, BsClipboardData, BsMenuButtonWideFill, BsFillGearFill } from 'react-icons/bs';
-
+import { BsGrid1X2Fill, BsChatDotsFill, BsPersonFill, BsClipboardData, BsMenuButtonWideFill, BsFillGearFill,} from 'react-icons/bs';
+import { IoPerson } from 'react-icons/io5';
 // Define sidebar data for the admin role
 export const adminSidebarData = [
   {
-    title: 'Dashboard', // Title of the sidebar item
-    icon: BsGrid1X2Fill, // Icon component for the sidebar item
-    link: '/' // Link for the sidebar item
+    title: 'Dashboard', 
+    icon: BsGrid1X2Fill,
+    link: '/' 
   },
   {
     title: 'Prayer Requests',
@@ -62,8 +61,17 @@ export const memberSidebarData = [
     link: '/'
   },
   {
+    title: 'Profile Management',
+    icon: IoPerson,
+    link: '/Profile'
+  },
+  {
     title: 'About',
     icon: BsMenuButtonWideFill,
     link: '/about'
-  }
+  },
 ];
+
+
+
+

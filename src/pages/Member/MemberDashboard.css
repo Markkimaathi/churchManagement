@@ -29,16 +29,16 @@
   justify-content: space-around;
   padding: 15px;
   border-radius: 8px;
-  color: white;
+  color: rgb(255, 255, 255);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .card:nth-child(1) {
-  background-color: #2962ff;
+  background-color: #104fe0;
 }
 
 .card:nth-child(2) {
-  background-color: #ff6d00;
+  background-color: #c9c4c0;
 }
 
 .card:nth-child(3) {
@@ -116,4 +116,3 @@
   font-size: 16px;
   line-height: 1.6;
 }
-
