@@ -2,14 +2,14 @@ import React from 'react';
 import { BsFillArchiveFill, BsFillGrid3X3GapFill,BsFillBellFill } from 'react-icons/bs';
 import './MemberDashboard.css';
 
-function AdminDashboard() {
+function MemberDashboard() {
   
   const membersCount = 15; 
   const eventsCount = 3; 
 
   const prayerRequestsCount = 22; 
   const recentSermons = [
-    { title: 'The Power of Prayer', preacher: 'Rev. John Mark' },
+    { title: 'The Power of Prayer', preacher: 'Rev. John Jason' },
     { title: 'Faith in Times of Trouble', preacher: 'Rev. Sam Smith' },
     { title: 'Love Your Neighbor', preacher: 'Rev. Mark Kimathi' }
   ];
@@ -54,14 +54,10 @@ function AdminDashboard() {
               </li>
             ))}
           </ul>
-        </div>
-        <div className='info-section'>
-          <h2>Feedback & Surveys</h2>
-          <p>No recent feedback or surveys available.</p>
-        </div>
+        </div>  
       </div>
     </main>
   );
 }
 
-export default AdminDashboard;
+export default MemberDashboard;
