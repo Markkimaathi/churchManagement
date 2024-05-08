@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DefaultLayout from './layout/DefaultLayout';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import MemberDashboard from './pages/Member/MemberDashboard';
-import ClergyDashboard from './pages/Clergy/ClergyDashboard';
+import ClergyDashboard from './pages/clergy/ClergyDashboard';
 import About from './components/About/About';
 import MainLogin from './pages/LoginRegister/MainLogin';
-import EventsCalendar from './components/EventsCalendar/EventsCalendar'; 
+import EventsCalendar from './components/EventsCalendar/EventsCalendar';
 import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 
 function App() {
-  const [userRole, setUserRole] = useState(localStorage.getItem('userRole')); 
+  const [userRole, setUserRole] = useState(localStorage.getItem('userRole'));
 
   return (
     <Router>
@@ -32,7 +32,7 @@ function App() {
               )}
               <Route path="/about" element={<About />} />
               <Route path="/events-calendar" element={<EventsCalendar />} />
-              <Route path="/profile-management" element={<ProfileManagement />} /> 
+              <Route path="/profile-management" element={<ProfileManagement />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </DefaultLayout>
