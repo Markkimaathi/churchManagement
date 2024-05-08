@@ -1,7 +1,7 @@
 import { BsGrid1X2Fill, BsChatDotsFill, BsPersonFill, BsClipboardData, BsMenuButtonWideFill, BsFillGearFill} from 'react-icons/bs';
 import { IoPerson } from 'react-icons/io5';
 import { RiCalendar2Fill } from 'react-icons/ri';
-import EventsCalendar from './EventsCalendar.js';
+import EventsCalendar from './EventsCalendar/EventsCalendar.js';
 import { FaUsers } from "react-icons/fa";
 
 // Define sidebar data for the admin role

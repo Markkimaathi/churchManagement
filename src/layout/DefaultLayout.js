@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import '../App.css';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer/Footer';
 
 
 const DefaultLayout = ({ children }) => {
