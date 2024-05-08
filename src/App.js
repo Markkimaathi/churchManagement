@@ -8,6 +8,7 @@ import ClergyDashboard from './pages/Clergy/ClergyDashboard';
 import About from './components/About';
 import MainLogin from './pages/LoginRegister/MainLogin';
 import EventsCalendar from './components/EventsCalendar'; 
+import NotFound from './components/NotFound';
 
 function App() {
   const [userRole, setUserRole] = useState(localStorage.getItem('userRole')); 
@@ -27,10 +28,13 @@ function App() {
                 <Route path="/" element={<ClergyDashboard />} />
               )}
               {userRole === '2' && (
-                <Route path="/" element={<AdminDashboard />} />
+                <Route path="/admin" element={<AdminDashboard />} />
               )}
               <Route path="/about" element={<About />} />
               <Route path="/events-calendar" element={<EventsCalendar />} />
+
+              <Route path="*" element={<NotFound />} />
+
             </Routes>
           </DefaultLayout>
         </div>

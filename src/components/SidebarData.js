@@ -2,18 +2,19 @@ import { BsGrid1X2Fill, BsChatDotsFill, BsPersonFill, BsClipboardData, BsMenuBut
 import { IoPerson } from 'react-icons/io5';
 import { RiCalendar2Fill } from 'react-icons/ri';
 import EventsCalendar from './EventsCalendar.js';
+import { FaUsers } from "react-icons/fa";
 
 // Define sidebar data for the admin role
 export const adminSidebarData = [
   {
     title: 'Dashboard', 
     icon: BsGrid1X2Fill,
-    link: '/' 
+    link: '/admin' 
   },
   {
-    title: 'Prayer Requests',
-    icon: BsChatDotsFill,
-    link: '/pastoral-care'
+    title: 'User Information',
+    icon: FaUsers,
+    link: '/user information'
   },
   {
     title: 'Leadership',
