@@ -7,7 +7,7 @@ import ClergyDashboard from './pages/Clergy/ClergyDashboard';
 import About from './components/About/About';
 import MainLogin from './pages/LoginRegister/MainLogin';
 import EventsCalendar from './components/EventsCalendar/EventsCalendar'; 
-import NotFound from './components/NotFound';
+import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 import AdminProfileManagement from './pages/Admin/AdminProfileManagement';
 
