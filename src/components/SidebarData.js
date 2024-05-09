@@ -1,4 +1,4 @@
-import { BsGrid1X2Fill, BsChatDotsFill, BsPersonFill, BsClipboardData, BsMenuButtonWideFill, BsFillGearFill} from 'react-icons/bs';
+import { BsGrid1X2Fill, BsChatDotsFill,BsClipboardData, BsMenuButtonWideFill, BsFillGearFill} from 'react-icons/bs';
 import { IoPerson } from 'react-icons/io5';
 import { RiCalendar2Fill } from 'react-icons/ri';
 import EventsCalendar from './EventsCalendar/EventsCalendar.js';
@@ -18,9 +18,9 @@ export const adminSidebarData = [
     link: '/Admin-Profile-Management'
   },
   {
-    title: 'Leadership',
-    icon: BsPersonFill,
-    link: '/leadership'
+    title: 'Announcements',
+    icon: FaBell,
+    link: '/announcements'
   },
   {
     title: 'Administration',
@@ -99,4 +99,9 @@ export const memberSidebarData = [
     icon: BsMenuButtonWideFill,
     link: '/about'
   },
+  {
+    title: 'Announcements',
+    icon: FaBell,
+    link: '/announcements'
+  }
 ];

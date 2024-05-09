@@ -10,7 +10,7 @@ import EventsCalendar from './components/EventsCalendar/EventsCalendar';
 import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 import AdminProfileManagement from './pages/Admin/AdminProfileManagement';
-import Announcements from './pages/Clergy/Announcements';
+import Announcements from './components/Announcements/Announcements';
 
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
                 <>
                   <Route path="/dashboard" element={<MemberDashboard />} />
                   <Route path="/profile-management" element={<ProfileManagement />} />
+                  <Route path="/Announcements" element={<Announcements />} />
                 </>
               )}
               {userRole === '1' && (
@@ -50,6 +51,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/events-calendar" element={<EventsCalendar />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/Announcements" element={<Announcements />} />
             </Routes>
           </DefaultLayout>
         </div>
