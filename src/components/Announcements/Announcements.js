@@ -3,7 +3,7 @@ import React from 'react'
 const Announcements = () => {
   return (
     <div>
-      Announcements 
+      enable members and the admin to view announcements, but only the clergy can add and edit the announcements
     </div>
   )
 }
