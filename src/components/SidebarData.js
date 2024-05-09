@@ -54,6 +54,11 @@ export const clergySidebarData = [
     link: '/'
   },
   {
+    title: 'Clergy Profile Management',
+    icon: IoPerson,
+    link: '/clergy-profile-management'
+  },
+  {
     title: 'Prayer Requests',
     icon: BsChatDotsFill,
     link: '/prayer-requests'

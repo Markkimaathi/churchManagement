@@ -12,6 +12,7 @@ import ProfileManagement from './pages/Member/ProfileManagement';
 import AdminProfileManagement from './pages/Admin/AdminProfileManagement';
 import Announcements from './components/Announcements/Announcements';
 import PrayerRequests from './components/PrayerRequests/PrayerRequests';
+import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
                   <Route path="/dashboard" element={<ClergyDashboard />} />
                   <Route path="/Announcements" element={<Announcements />} />
                   <Route path="/Prayer-Requests" element={<PrayerRequests/>} />
+                  <Route path="/clergy-profile-management" element={<ClergyProfileManagement/>} />
                 </>
               )}
               {userRole === '2' && (
