@@ -1,7 +1,7 @@
 /* Calendar Container */
 .events-calendar {
-    width: 100%; /* Occupy entire width */
-    max-width: 400px; /* Adjust width as needed */
+    width: 100%;
+    max-width: 400px; 
     margin: 0 auto;
     font-family: Arial, sans-serif;
 }
