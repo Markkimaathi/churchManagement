@@ -14,7 +14,6 @@ function App() {
   const [userRole, setUserRole] = useState(localStorage.getItem('userRole')); 
 
   useEffect(() => {
-    // Save user role to localStorage
     localStorage.setItem('userRole', userRole);
   }, [userRole]);
 
@@ -34,7 +33,7 @@ function App() {
                 <Route path="/dashboard" element={<ClergyDashboard />} />
               )}
               {userRole === '2' && (
-                <Route path="/dashboard" element={<AdminDashboard />} />
+                <Route path="/admin" element={<AdminDashboard />} />
               )}
               <Route path="/about" element={<About />} />
               <Route path="/events-calendar" element={<EventsCalendar />} />
