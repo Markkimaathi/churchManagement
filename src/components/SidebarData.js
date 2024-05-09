@@ -14,7 +14,7 @@ export const adminSidebarData = [
   {
     title: 'Admin Profile Management',
     icon: FaUsers,
-    link: '/Admin Profile Management'
+    link: '/Admin-Profile-Management'
   },
   {
     title: 'Leadership',

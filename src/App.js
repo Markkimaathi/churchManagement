@@ -9,9 +9,11 @@ import MainLogin from './pages/LoginRegister/MainLogin';
 import EventsCalendar from './components/EventsCalendar/EventsCalendar'; 
 import NotFound from './components/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
+import AdminProfileManagement from './pages/Admin/AdminProfileManagement';
+
 
 function App() {
-  const [userRole, setUserRole] = useState(localStorage.getItem('userRole')); 
+  const [userRole, setUserRole] = useState(() => localStorage.getItem('userRole') || null); 
 
   useEffect(() => {
     localStorage.setItem('userRole', userRole);
@@ -27,19 +29,24 @@ function App() {
             <Routes>
               <Route path="/" element={<Navigate to="/dashboard" />} />
               {userRole === '0' && (
-                <Route path="/dashboard" element={<MemberDashboard />} />
+                <>
+                  <Route path="/dashboard" element={<MemberDashboard />} />
+                  <Route path="/profile-management" element={<ProfileManagement />} />
+                </>
               )}
               {userRole === '1' && (
-                <Route path="/dashboard" element={<ClergyDashboard />} />
+                <>
+                  <Route path="/dashboard" element={<ClergyDashboard />} />
+                </>
               )}
               {userRole === '2' && (
-                <Route path="/admin" element={<AdminDashboard />} />
+                <>
+                  <Route path="/admin" element={<AdminDashboard />} />
+                  <Route path="/admin-profile-management" element={<AdminProfileManagement />} /> {/* Add this line */}
+                </>
               )}
               <Route path="/about" element={<About />} />
               <Route path="/events-calendar" element={<EventsCalendar />} />
-              {userRole === '0' && (
-                <Route path="/profile-management" element={<ProfileManagement />} />
-              )}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </DefaultLayout>
