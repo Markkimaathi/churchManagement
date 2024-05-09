@@ -31,14 +31,10 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
       </div>
 
       <ul className='sidebar-list'>
-        {/* Map over sidebar data and render sidebar items */}
         {sidebarData.map((item, index) => (
-          <li key={index} className='sidebar-list-item'>
-            {/* Sidebar item link */}
+          <li key={index} className='sidebar-list-item'> 
             <a href={item.link}>
-              {/* Sidebar item icon */}
               <item.icon className='icon' />
-              {/* Sidebar item title */}
               {item.title}
             </a>
           </li>

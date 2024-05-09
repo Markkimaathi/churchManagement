@@ -12,9 +12,9 @@ export const adminSidebarData = [
     link: '/admin' 
   },
   {
-    title: 'User Information',
+    title: 'Admin Profile Management',
     icon: FaUsers,
-    link: '/user information'
+    link: '/Admin Profile Management'
   },
   {
     title: 'Leadership',

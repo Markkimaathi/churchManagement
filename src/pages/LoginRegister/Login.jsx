@@ -3,15 +3,13 @@ import React, { useState, useEffect } from "react";
 export const Login = (props) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [pass, setPass] = useState('');
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const userRole = 0;
+        const userRole =0;
         await localStorage.setItem('userRole', userRole);      
         props.setUserRole(userRole); 
          await window.location.reload()
     }
-
     return (    
         <div className="auth-form-container">
             <h2>Login</h2>

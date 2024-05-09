@@ -6,8 +6,9 @@ const ProfileManagement = () => {
     name: '',
     email: '',
     joinDate: '',
-    address: '',
-    phoneNumber: ''
+    interests: '',
+    phoneNumber: '',
+    dateOfBirth: ''
   });
  
   useEffect(() => {
@@ -36,10 +37,12 @@ const ProfileManagement = () => {
         <input type="text" name="name" value={member.name} onChange={handleInputChange} />
         <label>Email:</label>
         <input type="email" name="email" value={member.email} onChange={handleInputChange} />
+        <label>Date of Birth:</label>
+        <input type="date" name="dateOfBirth" value={member.dateOfBirth} onChange={handleInputChange} />
         <label>Join Date:</label>
         <input type="date" name="joinDate" value={member.joinDate} onChange={handleInputChange} />
-        <label>Address:</label>
-        <input type="text" name="address" value={member.address} onChange={handleInputChange} />
+        <label>Interests:</label>
+        <input type="text" name="interests" value={member.interests} onChange={handleInputChange} />
         <label>Phone Number:</label>
         <input type="tel" name="phoneNumber" value={member.phoneNumber} onChange={handleInputChange} />
       </form>
@@ -47,4 +50,4 @@ const ProfileManagement = () => {
   );
 };
 
-export default ProfileManagement;
+export default ProfileManagement; 
