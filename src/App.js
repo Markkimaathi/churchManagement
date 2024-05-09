@@ -10,6 +10,7 @@ import EventsCalendar from './components/EventsCalendar/EventsCalendar';
 import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 import AdminProfileManagement from './pages/Admin/AdminProfileManagement';
+import Announcements from './pages/Clergy/Announcements';
 
 
 function App() {
@@ -37,12 +38,13 @@ function App() {
               {userRole === '1' && (
                 <>
                   <Route path="/dashboard" element={<ClergyDashboard />} />
+                  <Route path="/Announcements" element={<Announcements />} />
                 </>
               )}
               {userRole === '2' && (
                 <>
                   <Route path="/admin" element={<AdminDashboard />} />
-                  <Route path="/admin-profile-management" element={<AdminProfileManagement />} /> {/* Add this line */}
+                  <Route path="/admin-profile-management" element={<AdminProfileManagement />} /> 
                 </>
               )}
               <Route path="/about" element={<About />} />
