@@ -47,10 +47,10 @@
 }
 
 .react-calendar__tile {
-    padding: 10px;
-    border-radius: 5px;
+    padding: 10px; 
+    border-radius: 15px;
     cursor: pointer;
-    color: #000; /* All days in black color */
+    color: #000; 
 }
 
 .react-calendar__tile--now {
