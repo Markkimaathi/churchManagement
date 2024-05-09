@@ -11,6 +11,7 @@ import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 import AdminProfileManagement from './pages/Admin/AdminProfileManagement';
 import Announcements from './components/Announcements/Announcements';
+import PrayerRequests from './components/PrayerRequests/PrayerRequests';
 
 
 function App() {
@@ -34,12 +35,14 @@ function App() {
                   <Route path="/dashboard" element={<MemberDashboard />} />
                   <Route path="/profile-management" element={<ProfileManagement />} />
                   <Route path="/Announcements" element={<Announcements />} />
+                  <Route path="/Prayer-Requests" element={<PrayerRequests/>} />
                 </>
               )}
               {userRole === '1' && (
                 <>
                   <Route path="/dashboard" element={<ClergyDashboard />} />
                   <Route path="/Announcements" element={<Announcements />} />
+                  <Route path="/Prayer-Requests" element={<PrayerRequests/>} />
                 </>
               )}
               {userRole === '2' && (

@@ -56,7 +56,7 @@ export const clergySidebarData = [
   {
     title: 'Prayer Requests',
     icon: BsChatDotsFill,
-    link: '/pastoral-care'
+    link: '/prayer-requests'
   },
   {
     title: 'About',
@@ -93,6 +93,11 @@ export const memberSidebarData = [
     icon: RiCalendar2Fill,
     link: '/events-calendar',
     component: EventsCalendar 
+  },
+  {
+    title: 'Prayer Requests',
+    icon: BsChatDotsFill,
+    link: '/prayer-requests'
   },
   {
     title: 'About',
