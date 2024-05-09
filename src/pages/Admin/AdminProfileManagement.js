@@ -10,7 +10,9 @@ const AdminProfileManagement = () => {
     phoneNumber: '',
     dateOfBirth: ''
   });
- 
+
+  const [editMode, setEditMode] = useState(false); 
+
   useEffect(() => {
     const storedMember = JSON.parse(localStorage.getItem('member'));
     if (storedMember) {
@@ -30,14 +32,25 @@ const AdminProfileManagement = () => {
     localStorage.setItem('member', JSON.stringify(member));
   }, [member]);
 
+  const enterEditMode = () => {
+    setEditMode(true);
+  };
+
+  const saveChanges = () => {
+    setEditMode(false);
+    
+  };
+
   return (
     <div className="profile-form">
       <form>
         <label>Name:</label>
-        <input type="text" name="name" value={member.name} onChange={handleInputChange} />
+        <input type="text" name="name" value={member.name} onChange={handleInputChange} disabled={!editMode} />
         <label>Phone Number:</label>
-        <input type="tel" name="phoneNumber" value={member.phoneNumber} onChange={handleInputChange} />
+        <input type="tel" name="phoneNumber" value={member.phoneNumber} onChange={handleInputChange} disabled={!editMode} />
       </form>
+      <button onClick={enterEditMode}>Edit</button>
+      <button onClick={saveChanges}>Save</button>
     </div>
   );
 };
