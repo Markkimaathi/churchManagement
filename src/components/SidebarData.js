@@ -32,17 +32,18 @@ export const adminSidebarData = [
     link: '/about'
   },
   {
-    title: 'Settings',
-    icon: BsFillGearFill,
-    link: '/settings'
-  }, 
-  {
-    title: 'Events Calendar', 
+    title: 'Events Calendar',
     icon: RiCalendar2Fill,
     link: '/events-calendar',
     component: EventsCalendar
+  }, 
+  {
+    title: 'Settings',
+    icon: BsFillGearFill,
+    link: '/settings'
   }
-];
+]; 
+
 
 // Define sidebar data for the clergy role
 export const clergySidebarData = [

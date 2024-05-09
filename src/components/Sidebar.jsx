@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import * as SidebarData from './SidebarData'; // Import all named exports as an object
-
-// Sidebar component
+import * as SidebarData from './SidebarData'; 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
   const [sidebarData, setSidebarData] = useState([]);
