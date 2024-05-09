@@ -3,6 +3,7 @@ import { IoPerson } from 'react-icons/io5';
 import { RiCalendar2Fill } from 'react-icons/ri';
 import EventsCalendar from './EventsCalendar/EventsCalendar.js';
 import { FaUsers } from "react-icons/fa";
+import { FaBell } from "react-icons/fa";
 
 // Define sidebar data for the admin role
 export const adminSidebarData = [
@@ -68,6 +69,11 @@ export const clergySidebarData = [
     link: '/events-calendar',
     component: EventsCalendar 
   },
+  {
+    title: 'Announcements',
+    icon: FaBell,
+    link: '/announcements'
+  }
 ];
 
 // Define sidebar data for the member role
