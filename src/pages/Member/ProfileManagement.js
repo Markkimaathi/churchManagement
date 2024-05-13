@@ -46,6 +46,7 @@ const ProfileManagement = () => {
         <label>Phone Number:</label>
         <input type="tel" name="phoneNumber" value={member.phoneNumber} onChange={handleInputChange} />
       </form>
+      <button type="submit">Submit</button>
     </div>
   );
 };
