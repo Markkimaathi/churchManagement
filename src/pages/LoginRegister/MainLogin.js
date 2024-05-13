@@ -1,4 +1,3 @@
-// MainLogin.js
 import React, { useState } from "react";
 import './MainLogin.css';
 import { Login } from "./Login";

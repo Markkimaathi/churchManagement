@@ -6,7 +6,6 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
   useEffect(() => {
     const userRole = localStorage.getItem('userRole');
-    // Determine sidebar data based on user role
     let data;
     if (userRole === '2') {
       data = SidebarData.adminSidebarData;

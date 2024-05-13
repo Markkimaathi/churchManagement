@@ -42,6 +42,7 @@ const ClergyProfileManagement = () => {
         <input type="date" name="joinDate" value={member.joinDate} onChange={handleInputChange} />
         <label>Phone Number:</label>
         <input type="tel" name="phoneNumber" value={member.phoneNumber} onChange={handleInputChange} />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
