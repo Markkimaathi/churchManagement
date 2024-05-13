@@ -13,6 +13,7 @@ import AdminProfileManagement from './pages/Admin/AdminProfileManagement';
 import Announcements from './components/Announcements/Announcements';
 import PrayerRequests from './components/PrayerRequests/PrayerRequests';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
+import PrayerRequestForm from './pages/Member/PrayerRequestForm';
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
                   <Route path="/dashboard" element={<MemberDashboard />} />
                   <Route path="/profile-management" element={<ProfileManagement />} />
                   <Route path="/Announcements" element={<Announcements />} />
-                  <Route path="/Prayer-Requests" element={<PrayerRequests/>} />
+                  <Route path="/prayer-requests" element={<PrayerRequestForm />} />
                 </>
               )}
               {userRole === '1' && (
