@@ -1,0 +1,19 @@
+.main-page {
+  background-color: #2b2a2a;
+  min-height: 100vh;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-section {
+  margin-bottom: 30px;
+}
+
+.additional-info {
+  margin-top: 30px;
+}

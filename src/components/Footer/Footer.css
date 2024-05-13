@@ -1,0 +1,19 @@
+.footer-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ddd;
+    color: #fff;
+    text-align: center;
+    padding: 20px; 
+    box-sizing: border-box; 
+    height: 8px;
+     
+  }
+  
+  .footer-wrapper p {
+    margin: 0;
+    color: red;
+  }
+  
