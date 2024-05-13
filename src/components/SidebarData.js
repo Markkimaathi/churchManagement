@@ -1,4 +1,4 @@
-import { BsGrid1X2Fill, BsChatDotsFill,BsClipboardData, BsMenuButtonWideFill, BsFillGearFill} from 'react-icons/bs';
+import { BsGrid1X2Fill, BsChatDotsFill, BsMenuButtonWideFill,} from 'react-icons/bs';
 import { IoPerson } from 'react-icons/io5';
 import { RiCalendar2Fill } from 'react-icons/ri';
 import EventsCalendar from './EventsCalendar/EventsCalendar.js';
@@ -23,11 +23,6 @@ export const adminSidebarData = [
     link: '/announcements'
   },
   {
-    title: 'Administration',
-    icon: BsClipboardData,
-    link: '/administration'
-  },
-  {
     title: 'About',
     icon: BsMenuButtonWideFill,
     link: '/about'
@@ -38,11 +33,6 @@ export const adminSidebarData = [
     link: '/events-calendar',
     component: EventsCalendar
   }, 
-  {
-    title: 'Settings',
-    icon: BsFillGearFill,
-    link: '/settings'
-  }
 ]; 
 
 
