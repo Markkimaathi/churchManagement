@@ -14,6 +14,7 @@ import Announcements from './components/Announcements/Announcements';
 import PrayerRequests from './components/PrayerRequests/PrayerRequests';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
 import PrayerRequestForm from './pages/Member/PrayerRequestForm';
+import Announce from './pages/Clergy/Announce';
 
 
 function App() {
@@ -36,14 +37,14 @@ function App() {
                 <>
                   <Route path="/dashboard" element={<MemberDashboard />} />
                   <Route path="/profile-management" element={<ProfileManagement />} />
-                  <Route path="/Announcements" element={<Announcements />} />
+                  <Route path="/Announcements" element={<Announcements/>} />
                   <Route path="/prayer-requests" element={<PrayerRequestForm />} />
                 </>
               )}
               {userRole === '1' && (
                 <>
                   <Route path="/dashboard" element={<ClergyDashboard />} />
-                  <Route path="/Announcements" element={<Announcements />} />
+                  <Route path="/announce" element={<Announce />} />
                   <Route path="/Prayer-Requests" element={<PrayerRequests/>} />
                   <Route path="/clergy-profile-management" element={<ClergyProfileManagement/>} />
                 </>

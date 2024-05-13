@@ -67,7 +67,7 @@ export const clergySidebarData = [
   {
     title: 'Announcements',
     icon: FaBell,
-    link: '/announcements'
+    link: '/announce'
   }
 ];
 
