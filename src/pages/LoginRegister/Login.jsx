@@ -5,7 +5,7 @@ export const Login = (props) => {
     const [pass, setPass] = useState('');
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const userRole =2;
+        const userRole =0;
         await localStorage.setItem('userRole', userRole);      
         props.setUserRole(userRole); 
          await window.location.reload()
