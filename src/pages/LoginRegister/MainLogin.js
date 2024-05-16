@@ -13,7 +13,7 @@ function MainLogin({ setUserRole }) {
   return (
     <div className="MainLogin">
       {
-        currentForm === "login" ? <Login onFormSwitch={toggleForm} setUserRole={setUserRole} /> : <Register onFormSwitch={toggleForm} />
+        currentForm === "login" ? <Login onFormSwitch={toggleForm} setUserRole={setUserRole} /> : <Register onFormSwitch={toggleForm}  setUserRole={setUserRole} />
       }
     </div>
   );

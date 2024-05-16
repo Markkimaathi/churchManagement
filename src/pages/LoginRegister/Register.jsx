@@ -1,21 +1,89 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
+import { RegisterRequest } from "../../redux/actions/LoginAction";
 
 export const Register = (props) => {
     const [fullName, setFullName] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [interests, setInterests] = useState('');
-    const [imageURL, setImageURL] = useState('');
+    const [imageFile, setImageFile] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
+
+
+    function convertToAPIDate(dateString) {
+        const date = new Date(dateString);
+        return date.toISOString();
+    }
+    
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImageFile(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(fullName, dateOfBirth, phoneNumber, interests, imageURL, password, confirmPassword);
+        if(password !== confirmPassword)
+            {
+                toast.error("Password do not match")
+                return null;
+            }
+   if (!fullName || !dateOfBirth || !phoneNumber || !interests || !password || !confirmPassword) {
+                toast.error("Please fill in all fields");
+                return;
+            }
+        const myForm = {
+            userID: 0,
+            fullName: fullName,
+            dateOfBirth: convertToAPIDate(dateOfBirth),
+            phoneNumber: phoneNumber,
+            interests: interests,
+            imageUrl: imageFile,
+            userType: 0,
+            password: password
+        };
+
+        console.log(myForm);
+
+        try {
+            const response = await dispatch(RegisterRequest(myForm));
+            // console.log(response.payload);
+
+            if (typeof response.payload === 'object' && response.payload !== null) {
+                const userRole = await response.payload.userType;
+                toast.success('Registered Successfully')
+                setTimeout(() => {
+                    localStorage.setItem('userRole', userRole);
+                    props.setUserRole(userRole);
+                    window.location.reload();
+                }, 2000);
+                // console.log(userRole);
+            } else if (typeof response.payload === 'string') {
+                if (response.payload.includes('Phone number already exists.')) {
+                    toast.info('Phone number already exists. Please login.')
+                    console.log('User not found');
+                }
+            }
+        } catch (error) {
+            console.log('Error occurred:', error);
+            console.log('Please try again.');
+        }
     }
 
     return (
         <div className="auth-form-container">
+            <ToastContainer />
             <h2>Register</h2>
             <form className="register-form" onSubmit={handleSubmit}>
                 <label htmlFor="fullName">Full Name</label>
@@ -31,7 +99,12 @@ export const Register = (props) => {
                 <input value={interests} onChange={(e) => setInterests(e.target.value)} id="interests" placeholder="Interests" />
 
                 <label htmlFor="imageURL">Image URL</label>
-                <input value={imageURL} onChange={(e) => setImageURL(e.target.value)} type="file" id="imageURL" placeholder="Image URL" />
+                <input onChange={handleImageChange} type="file" id="imageURL" accept="image/*" />
+                {/* Display preview of the selected image */}
+                {imageFile && (
+                    <img src={imageFile} alt="Preview" style={{ maxWidth: '10%', marginTop: '2px', borderRadius:'50%' }} />
+                )}
+
 
                 <label htmlFor="password">Password</label>
                 <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password" placeholder="********" />

@@ -17,6 +17,7 @@ import PrayerRequestForm from './pages/Member/PrayerRequestForm';
 import Announce from './pages/Clergy/Announce';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProfilePage from './components/ProfilePage/ProfilePage';
 
 function App() {
   const [userRole, setUserRole] = useState(() => localStorage.getItem('userRole') || null); 
@@ -61,6 +62,7 @@ function App() {
               <Route path="/events-calendar" element={<EventsCalendar />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/Announcements" element={<Announcements />} />
+              <Route path="/ProfilePage" element={<ProfilePage />} />
             </Routes>
           </DefaultLayout>
         </div>

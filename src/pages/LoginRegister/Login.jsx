@@ -7,7 +7,6 @@ export const Login = (props) => {
     const [phone, setphone] = useState('');
     const [pass, setPass] = useState('');
     const dispatch = useDispatch();
-    const [mag, setmag] = useState('');
 
 
     const handleSubmit = async (e) => {
@@ -36,7 +35,6 @@ export const Login = (props) => {
                     console.log('User not found');
                 } else if (response.payload.includes('Invalid phone number or password.')) {
                     console.log('Invalid phone number or password.');
-                    setmag('Invalid phone number or password.')
 
                 }
             }
