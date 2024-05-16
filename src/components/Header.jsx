@@ -1,6 +1,6 @@
 import React from 'react'
 import 
- {BsJustify, BsArrowLeftSquareFill  }
+{BsJustify, BsArrowLeftSquareFill  }
  from 'react-icons/bs'
 
 function Header({OpenSidebar}) {

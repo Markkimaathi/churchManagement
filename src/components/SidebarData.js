@@ -10,7 +10,7 @@ export const adminSidebarData = [
   {
     title: 'Dashboard', 
     icon: BsGrid1X2Fill,
-    link: '/admin' 
+    link: '/' 
   },
   {
     title: 'Admin Profile Management',

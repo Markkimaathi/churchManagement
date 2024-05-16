@@ -15,7 +15,8 @@ import PrayerRequests from './components/PrayerRequests/PrayerRequests';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
 import PrayerRequestForm from './pages/Member/PrayerRequestForm';
 import Announce from './pages/Clergy/Announce';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [userRole, setUserRole] = useState(() => localStorage.getItem('userRole') || null); 
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <Router>
+      <ToastContainer />
       {userRole === null ? (
         <MainLogin setUserRole={setUserRole} />
       ) : (
@@ -51,7 +53,7 @@ function App() {
               )}
               {userRole === '2' && (
                 <>
-                  <Route path="/admin" element={<AdminDashboard />} />
+                  <Route path="/dashboard" element={<AdminDashboard />} />
                   <Route path="/admin-profile-management" element={<AdminProfileManagement />} /> 
                 </>
               )}
