@@ -39,8 +39,6 @@ const ProfileManagement = () => {
         <input type="email" name="email" value={member.email} onChange={handleInputChange} />
         <label>Date of Birth:</label>
         <input type="date" name="dateOfBirth" value={member.dateOfBirth} onChange={handleInputChange} />
-        <label>Join Date:</label>
-        <input type="date" name="joinDate" value={member.joinDate} onChange={handleInputChange} />
         <label>Interests:</label>
         <input type="text" name="interests" value={member.interests} onChange={handleInputChange} />
         <label>Phone Number:</label>

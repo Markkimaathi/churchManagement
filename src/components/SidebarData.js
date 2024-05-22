@@ -4,6 +4,8 @@ import { RiCalendar2Fill } from 'react-icons/ri';
 import EventsCalendar from './EventsCalendar/EventsCalendar.js';
 import { FaUsers } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
+import { FaTable } from "react-icons/fa";
+import Muitable from './MuiTable/MuiTable.js';
 
 // Define sidebar data for the admin role
 export const adminSidebarData = [
@@ -11,6 +13,12 @@ export const adminSidebarData = [
     title: 'Dashboard', 
     icon: BsGrid1X2Fill,
     link: '/' 
+  },
+  {
+    title: 'Table',
+    icon: FaTable,
+    link:'/Table',
+    component: Muitable
   },
   {
     title: 'Admin Profile Management',
@@ -42,6 +50,12 @@ export const clergySidebarData = [
     title: 'Dashboard',
     icon: BsGrid1X2Fill,
     link: '/'
+  },
+  {
+    title: 'Table',
+    icon: FaTable,
+    link:'/Table',
+    component: Muitable
   },
   {
     title: 'Clergy Profile Management',

@@ -18,6 +18,8 @@ import Announce from './pages/Clergy/Announce';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfilePage from './components/ProfilePage/ProfilePage';
+import Muitable from './components/MuiTable/MuiTable';
+
 
 function App() {
   const [userRole, setUserRole] = useState(() => localStorage.getItem('userRole') || null); 
@@ -63,6 +65,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
               <Route path="/Announcements" element={<Announcements />} />
               <Route path="/ProfilePage" element={<ProfilePage />} />
+              <Route path="/MuiTable" element={<Muitable />} />
             </Routes>
           </DefaultLayout>
         </div>
