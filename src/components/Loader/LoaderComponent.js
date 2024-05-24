@@ -7,7 +7,7 @@ const LoaderComponent = () => {
     <div className="loader-container">
       <BallTriangle
         height={100}
-        width={100}
+        width={500}
         radius={5}
         color="#4fa94d"
         ariaLabel="ball-triangle-loading"
