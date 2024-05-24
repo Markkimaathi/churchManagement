@@ -11,6 +11,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllUsers } from '../../../redux/actions/LoginAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
+import './UserTable.css';
 
 
 export const UserTable = () => {
