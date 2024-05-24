@@ -19,6 +19,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import UserTable from './pages/Admin/UserTable/UserTable';
+import AnnouncementTable from './pages/Admin/AnnouncementTable/AnnouncementTable';
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
                   <Route path="/dashboard" element={<AdminDashboard />} />
                   <Route path="/admin-profile-management" element={<AdminProfileManagement />} /> 
                   <Route path="/all-users" element={<UserTable />} />
+                  <Route path="/table-announcements" element={<AnnouncementTable/>} />
                 </>
               )}
               <Route path="/about" element={<About />} />

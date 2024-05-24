@@ -9,7 +9,7 @@ import {
   Paper
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { GetAllAnnouncements } from '../../../redux/actions/AnnouncementAction';
+import { GetAllAnnouncements } from '../../../redux/actions/AnnouncementsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import './AnnouncementTable.css';
 
@@ -51,10 +51,10 @@ export const AnnouncementTable = () => {
             <TableBody>
               {allAnnouncements.map((row) => (
                 <TableRow
-                  key={row.announcementID}
+                  key={row.id}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell>{row.announcementID}</TableCell>
+                  <TableCell>{row.id}</TableCell>
                   <TableCell>{row.title}</TableCell>
                   <TableCell>{formatDate(row.date)}</TableCell>
                   <TableCell>{row.createdBy}</TableCell>

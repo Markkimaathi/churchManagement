@@ -6,6 +6,7 @@ import { FaUsers } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
 import { FaTable } from "react-icons/fa";
 import UserTable from '../pages/Admin/UserTable/UserTable.js';
+import AnnouncementTable from '../pages/Admin/AnnouncementTable/AnnouncementTable.js';
 
 
 // Define sidebar data for the admin role
@@ -29,7 +30,7 @@ export const adminSidebarData = [
   {
     title: 'Announcements',
     icon: FaBell,
-    link: '/announcements'
+    link: '/table-announcements'
   },
   {
     title: 'About',
@@ -74,10 +75,11 @@ export const clergySidebarData = [
     component: EventsCalendar 
   },
   {
-    title: 'Announcements',
+    title: 'Announcement Table',
     icon: FaBell,
-    link: '/announce'
-  }
+    link: '/announcements',
+    component: AnnouncementTable
+  },
 ];
 
 // Define sidebar data for the member role
