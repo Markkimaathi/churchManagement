@@ -13,7 +13,6 @@ import { GetAllUsers } from '../../../redux/actions/LoginAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import './UserTable.css';
 
-
 export const UserTable = () => {
   const { allUsers, error, loading } = useSelector((state) => state.Users);
   const dispatch = useDispatch();
@@ -21,6 +20,11 @@ export const UserTable = () => {
   useEffect(() => {
     dispatch(GetAllUsers());
   }, [dispatch]);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+  };
 
   return (
     <div>
@@ -47,7 +51,7 @@ export const UserTable = () => {
                 >
                   <TableCell>{row.userID}</TableCell>
                   <TableCell>{row.fullName}</TableCell>
-                  <TableCell>{row.dateOfBirth}</TableCell>
+                  <TableCell>{formatDate(row.dateOfBirth)}</TableCell>
                   <TableCell>{row.phoneNumber}</TableCell>
                   <TableCell>{row.interests}</TableCell>
                   <TableCell align='center'>
