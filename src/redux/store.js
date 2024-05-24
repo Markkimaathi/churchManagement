@@ -1,11 +1,10 @@
  
-import { configureStore, createSlice } from '@reduxjs/toolkit';
-// import fuelReducer from './reducers/FuelSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import getUsersReducer from './reducers/GetUsersReducer';
 
 const store = configureStore({
   reducer: {
-    // fuel: fuelReducer,
-
+    Users: getUsersReducer
   }
 });
 

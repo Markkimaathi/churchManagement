@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill } from 'react-icons/bs';
 import './AdminDashboard.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetAllUsers } from '../../redux/actions/LoginAction';
+import { Button } from '@mui/material';
 
 
 
-function AdminDashboard() {
-  
+const AdminDashboard = () => { 
+
+  const { allUsers,error, loading } = useSelector((state) => state.Users);
+  const dispatch = useDispatch();
+
+
+  console.log(allUsers)
+
+
+  useEffect(() => {
+    dispatch(GetAllUsers())
+    }, [dispatch]);
+
+  const handlefetchdetails = () => {
+    dispatch(GetAllUsers())
+  }
+
   const sermons = [
     { title: 'The Power of Prayer', preacher: 'Rev. John Mark' },
     { title: 'Faith in Times of Trouble', preacher: 'Rev. Sam Smith' },
@@ -22,7 +40,10 @@ function AdminDashboard() {
     <main className='main-container'>
       <div className='main-title'>
         <h3>ADMIN DASHBOARD</h3>
+<Button onClick={handlefetchdetails}>Get Details</Button>
+
       </div>
+
 
       <div className='main-cards'>
         <div className='card'>

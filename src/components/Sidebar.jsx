@@ -17,7 +17,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
     setSidebarData(data);
   }, []); 
 
-  console.log(sidebarData)
+  // console.log(sidebarData)
   return (
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive" : ""}>
       <div className='sidebar-title'>

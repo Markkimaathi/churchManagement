@@ -18,7 +18,7 @@ import Announce from './pages/Clergy/Announce';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfilePage from './components/ProfilePage/ProfilePage';
-import Muitable from './components/MuiTable/MuiTable';
+import UserTable from './pages/Admin/UserTable/UserTable';
 
 
 function App() {
@@ -58,6 +58,7 @@ function App() {
                 <>
                   <Route path="/dashboard" element={<AdminDashboard />} />
                   <Route path="/admin-profile-management" element={<AdminProfileManagement />} /> 
+                  <Route path="/all-users" element={<UserTable />} />
                 </>
               )}
               <Route path="/about" element={<About />} />
@@ -65,7 +66,6 @@ function App() {
               <Route path="*" element={<NotFound />} />
               <Route path="/Announcements" element={<Announcements />} />
               <Route path="/ProfilePage" element={<ProfilePage />} />
-              <Route path="/MuiTable" element={<Muitable />} />
             </Routes>
           </DefaultLayout>
         </div>
