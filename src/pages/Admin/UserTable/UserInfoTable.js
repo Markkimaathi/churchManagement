@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import {
-    Button,
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    TextField,
-    DialogActions,
-    Select,
-    MenuItem,
-    FormControl,
-    InputLabel
-  } from '@mui/material';
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  TextField,
+  DialogActions,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel
+} from '@mui/material';
 import { UpdateUserDetails } from '../../../redux/actions/UpdateUserAction';
 import { useDispatch } from 'react-redux';
 
+const convertToAPIDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toISOString();
+};
+
 const UserInfoTable = ({ users, formatDate, userId }) => {
-  // Define states for each field separately
   const [open, setOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [fullName, setFullName] = useState('');
@@ -23,7 +27,8 @@ const UserInfoTable = ({ users, formatDate, userId }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [interests, setInterests] = useState('');
   const [userType, setUserType] = useState('');
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const userToUpdate = users.find(user => user.userID === userId);
 
@@ -31,7 +36,7 @@ const dispatch = useDispatch();
       setSelectedUser(userToUpdate);
       setOpen(true);
       setFullName(userToUpdate.fullName);
-      setDateOfBirth(userToUpdate.dateOfBirth);
+      setDateOfBirth(userToUpdate.dateOfBirth.split('T')[0]); // Set dateOfBirth correctly formatted for the input
       setPhoneNumber(userToUpdate.phoneNumber);
       setInterests(userToUpdate.interests);
       setUserType(userToUpdate.userType);
@@ -52,14 +57,13 @@ const dispatch = useDispatch();
     const id = selectedUser.userID;
 
     const formData = {
-      userID: 0,
-      fullName: fullName ,
-      dateOfBirth: dateOfBirth ,
-      phoneNumber: phoneNumber ,
-      interests: interests ,
+      userID: id,
+      fullName: fullName,
+      dateOfBirth: convertToAPIDate(dateOfBirth),
+      phoneNumber: phoneNumber,
+      interests: interests,
       userType: userType
     };
-    console.log(fullName)
 
     // try {
     //   const response = await dispatch(UpdateUserDetails(id, formData));
@@ -70,6 +74,7 @@ const dispatch = useDispatch();
 
     handleClose();
   };
+
   return (
     <>
       {selectedUser && (
@@ -109,7 +114,7 @@ const dispatch = useDispatch();
               onChange={(e) => setInterests(e.target.value)}
               fullWidth
             />
-             <FormControl fullWidth>
+            <FormControl fullWidth>
               <InputLabel>User Type</InputLabel>
               <Select
                 value={userType}
