@@ -11,7 +11,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllAnnouncements } from '../../../redux/actions/AnnouncementsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
-import './AnnouncementTable.css';
+import './MemberTable.css';
 
 export const MemberTable = () => {
   const { allAnnouncements, error, loading } = useSelector((state) => state.Announcements);
