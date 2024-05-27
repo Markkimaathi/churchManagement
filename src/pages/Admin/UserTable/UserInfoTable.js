@@ -12,7 +12,6 @@ import {
 
 const UserInfoTable = ({ users, formatDate }) => {
   const handleUpdate = (userId) => {
-    // Handle update action here, e.g., dispatch Redux action
     console.log("Updating user with ID:", userId);
   };
 
