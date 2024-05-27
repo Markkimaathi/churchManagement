@@ -11,12 +11,12 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  DialogActions,
-  Typography
+  DialogActions
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllUsers } from '../../../redux/actions/LoginAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
+import UserInfoTable from './UserInfoTable'; 
 import './UserTable.css';
 
 export const UserTable = () => {
@@ -73,13 +73,14 @@ export const UserTable = () => {
                     <TableCell>{row.phoneNumber}</TableCell>
                     <TableCell>{row.interests}</TableCell>
                     <TableCell align='center'>
-                      <img src={row.imageUrl} height={'30px'} width={'30px'} alt="Profile" />
+                      <img src={row.imageUrl} height={'30px'} width={'30px'} alt="Profile" loading="lazy" />
                     </TableCell>
                     <TableCell align='center'>
                       <Button
                         variant='contained'
                         color='primary'
                         onClick={handleActionClick}
+                        aria-label={`More info about ${row.fullName}`}
                       >
                         Info
                       </Button>
@@ -93,19 +94,7 @@ export const UserTable = () => {
           <Dialog open={open} onClose={handleClose} aria-labelledby="all-users-info-dialog">
             <DialogTitle id="all-users-info-dialog">All Users Information</DialogTitle>
             <DialogContent>
-              {allUsers.map((user) => (
-                <div key={user.userID} style={{ marginBottom: '20px' }}>
-                  <Typography variant="h6">User ID: {user.userID}</Typography>
-                  <Typography>Full Name: {user.fullName}</Typography>
-                  <Typography>Date of Birth: {formatDate(user.dateOfBirth)}</Typography>
-                  <Typography>Phone Number: {user.phoneNumber}</Typography>
-                  <Typography>Interests: {user.interests}</Typography>
-                  <Typography>
-                    Profile Picture: <img src={user.imageUrl} height={'100px'} width={'100px'} alt="Profile" />
-                  </Typography>
-                  <hr />
-                </div>
-              ))}
+              <UserInfoTable users={allUsers} formatDate={formatDate} />
             </DialogContent>
             <DialogActions>
               <Button onClick={handleClose} color="primary">
