@@ -1,31 +1,30 @@
-
 import { createSlice } from '@reduxjs/toolkit';
-import { GetAllAnnouncements } from '../actions/AnnouncementsAction';
+import { GetAllPrayerRequests } from '../actions/PrayerRequestsAction';
 
-const getAnnouncementsSlice = createSlice({
-  name: 'Announcements',
+const getPrayerRequestsSlice = createSlice({
+  name: 'PrayerRequests',
   initialState: {
-    allAnnouncements: [],
+    allPrayerRequests: [],
     loading: false,
     error: null
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(GetAllAnnouncements.pending, (state) => {
+      .addCase(GetAllPrayerRequests.pending, (state) => {
         state.loading = true;
         state.error = null
       })
-      .addCase(GetAllAnnouncements.fulfilled, (state, action) => {
+      .addCase(GetAllPrayerRequests.fulfilled, (state, action) => {
         state.loading = false;
         state.error = false;
-        state.allAnnouncements = action.payload;
+        state.allPrayerRequests = action.payload;
       })
-      .addCase(GetAllAnnouncements.rejected, (state, action) => {
+      .addCase(GetAllPrayerRequests.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });
   },
 });
 
-export default getAnnouncementsSlice.reducer;
+export default getPrayerRequestsSlice.reducer;
