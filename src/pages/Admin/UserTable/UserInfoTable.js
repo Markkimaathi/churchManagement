@@ -6,10 +6,16 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Paper
+  Paper,
+  Button
 } from '@mui/material';
 
 const UserInfoTable = ({ users, formatDate }) => {
+  const handleUpdate = (userId) => {
+    // Handle update action here, e.g., dispatch Redux action
+    console.log("Updating user with ID:", userId);
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label='user info table'>
@@ -21,6 +27,7 @@ const UserInfoTable = ({ users, formatDate }) => {
             <TableCell>Phone NO</TableCell>
             <TableCell>Interests</TableCell>
             <TableCell align='center'>Profile pic</TableCell>
+            <TableCell align='center'>Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -33,6 +40,9 @@ const UserInfoTable = ({ users, formatDate }) => {
               <TableCell>{user.interests}</TableCell>
               <TableCell align='center'>
                 <img src={user.imageUrl} height={'30px'} width={'30px'} alt="Profile" loading="lazy" />
+              </TableCell>
+              <TableCell align='center'>
+                <Button variant="outlined" color="primary" onClick={() => handleUpdate(user.userID)}>Update</Button>
               </TableCell>
             </TableRow>
           ))}
