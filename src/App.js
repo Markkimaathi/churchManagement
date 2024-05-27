@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import UserTable from './pages/Admin/UserTable/UserTable';
 import AnnouncementTable from './pages/Admin/AnnouncementTable/AnnouncementTable';
+import MemberTable from './pages/Member/MemberTable/MemberTable';
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
                 <>
                   <Route path="/dashboard" element={<MemberDashboard />} />
                   <Route path="/profile-management" element={<ProfileManagement />} />
-                  <Route path="/Announcements" element={<Announcements/>} />
+                  <Route path="/MemberTable" element={<MemberTable/>} />
                   <Route path="/prayer-requests" element={<PrayerRequestForm />} />
                 </>
               )}
