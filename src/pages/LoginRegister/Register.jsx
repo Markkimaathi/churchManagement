@@ -54,7 +54,7 @@ const dispatch = useDispatch();
             password: password
         };
 
-        console.log(myForm);
+       
 
         try {
             const response = await dispatch(RegisterRequest(myForm));

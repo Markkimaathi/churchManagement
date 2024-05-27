@@ -24,22 +24,22 @@ export const UserTable = () => {
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
+  const [selectedUserId, setSelectedUserId] = useState(null);
+  const [updateDialogOpen, setUpdateDialogOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
     dispatch(GetAllUsers());
   }, [dispatch]);
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toISOString().split('T')[0];
+  const handleActionClick = (userId) => {
+    const userToUpdate = allUsers.find(user => user.userID === userId);
+    setSelectedUser(userToUpdate);
+    setUpdateDialogOpen(true);
   };
 
-  const handleActionClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseUpdateDialog = () => {
+    setUpdateDialogOpen(false);
   };
 
   return (
@@ -69,7 +69,7 @@ export const UserTable = () => {
                   >
                     <TableCell>{row.userID}</TableCell>
                     <TableCell>{row.fullName}</TableCell>
-                    <TableCell>{formatDate(row.dateOfBirth)}</TableCell>
+                    <TableCell>{row.dateOfBirth}</TableCell>
                     <TableCell>{row.phoneNumber}</TableCell>
                     <TableCell>{row.interests}</TableCell>
                     <TableCell align='center'>
@@ -79,10 +79,10 @@ export const UserTable = () => {
                       <Button
                         variant='contained'
                         color='primary'
-                        onClick={handleActionClick}
-                        aria-label={`More info about ${row.fullName}`}
+                        onClick={() => handleActionClick(row.userID)}
+                        aria-label={`Update info for ${row.fullName}`}
                       >
-                        Info
+                        Update
                       </Button>
                     </TableCell>
                   </TableRow>
@@ -91,13 +91,18 @@ export const UserTable = () => {
             </Table>
           </TableContainer>
 
-          <Dialog open={open} onClose={handleClose} aria-labelledby="all-users-info-dialog">
-            <DialogTitle id="all-users-info-dialog">All Users Information</DialogTitle>
+          <Dialog open={updateDialogOpen} onClose={handleCloseUpdateDialog} aria-labelledby="update-user-info-dialog">
+            <DialogTitle id="update-user-info-dialog">Update User Information</DialogTitle>
             <DialogContent>
-              <UserInfoTable users={allUsers} formatDate={formatDate} />
+              {selectedUser && (
+                <UserInfoTable 
+                  users={[selectedUser]} 
+                  userId={selectedUser.userID} 
+                />
+              )}
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose} color="primary">
+              <Button onClick={handleCloseUpdateDialog} color="primary">
                 Close
               </Button>
             </DialogActions>
