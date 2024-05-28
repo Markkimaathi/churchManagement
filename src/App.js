@@ -9,7 +9,6 @@ import MainLogin from './pages/LoginRegister/MainLogin';
 import EventsCalendar from './components/EventsCalendar/EventsCalendar'; 
 import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
-import AdminProfileManagement from './pages/Admin/AdminProfileManagement';
 import Announcements from './components/Announcements/Announcements';
 import PrayerRequests from './components/PrayerRequests/PrayerRequests';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
@@ -59,7 +58,6 @@ function App() {
               {userRole === '2' && (
                 <>
                   <Route path="/dashboard" element={<AdminDashboard />} />
-                  <Route path="/admin-profile-management" element={<AdminProfileManagement />} /> 
                   <Route path="/all-users" element={<UserTable />} />
                   <Route path="/table-announcements" element={<AnnouncementTable/>} />
                 </>
