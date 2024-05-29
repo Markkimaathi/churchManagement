@@ -12,7 +12,7 @@ import ProfileManagement from './pages/Member/ProfileManagement';
 import Announcements from './components/Announcements/Announcements';
 import PrayerRequests from './components/PrayerRequests/PrayerRequests';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
-import PrayerRequestForm from './pages/Member/PrayerRequestForm';
+import PrayerRequestForm from './pages/Member/PrayerRequestsForm/PrayerRequestForm';
 import Announce from './pages/Clergy/Announce';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
