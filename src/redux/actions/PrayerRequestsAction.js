@@ -7,7 +7,7 @@ export const GetAllPrayerRequests = createAsyncThunk('fetch/AllPrayerRequests', 
 
     const response = await fetch(API_ENDPOINT_URL, {
       method: 'GET',
-      headers: {
+      headers: { 
         'Content-Type': 'application/json',
       },
     });
