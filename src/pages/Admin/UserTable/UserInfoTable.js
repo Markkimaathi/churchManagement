@@ -37,7 +37,7 @@ const UserInfoTable = ({ users, formatDate, userId }) => {
       setSelectedUser(userToUpdate);
       setOpen(true);
       setFullName(userToUpdate.fullName);
-      setDateOfBirth(userToUpdate.dateOfBirth.split('T')[0]); // Set dateOfBirth correctly formatted for the input
+      setDateOfBirth(userToUpdate.dateOfBirth.split('T')[0]); 
       setPhoneNumber(userToUpdate.phoneNumber);
       setInterests(userToUpdate.interests);
       setUserType(userToUpdate.userType);
