@@ -10,7 +10,6 @@ const store = configureStore({
     Users: getUsersReducer,
     Announcements: getAnnouncementsReducer,
     PrayerRequests: GetPrayerRequestsReducer
-
   }
 });
 

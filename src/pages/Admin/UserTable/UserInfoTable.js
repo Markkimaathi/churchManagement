@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import { UpdateUserDetails } from '../../../redux/actions/UpdateUserAction';
 import { useDispatch } from 'react-redux';
+import './UserTable.css';
 
 const convertToAPIDate = (dateString) => {
   const date = new Date(dateString);
