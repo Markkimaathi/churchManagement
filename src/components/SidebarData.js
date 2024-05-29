@@ -7,6 +7,7 @@ import { FaTable } from "react-icons/fa";
 import UserTable from '../pages/Admin/UserTable/UserTable.js';
 import AnnouncementTable from '../pages/Admin/AnnouncementTable/AnnouncementTable.js';
 import MemberTable from '../pages/Member/MemberTable/MemberTable.js';
+import PrayerTable from '../pages/Clergy/PrayerTable/PrayerTable.js';
 
 
 // Define sidebar data for the admin role
@@ -56,7 +57,8 @@ export const clergySidebarData = [
   {
     title: 'Prayer Requests',
     icon: BsChatDotsFill,
-    link: '/prayer-requests'
+    link: '/prayer-requests',
+    component: PrayerTable
   },
   {
     title: 'About',

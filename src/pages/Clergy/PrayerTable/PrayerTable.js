@@ -14,17 +14,22 @@ import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import './PrayerTable.css';
 
 export const PrayerTable = () => {
-    const { allPrayerRequests, error , loading } = useSelector((state) => state.PrayerRequests);
-    const dispatch = useDispatch ();
+  const { allPrayerRequests, error, loading } = useSelector((state) => state.PrayerRequests);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(GetAllPrayerRequests());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(GetAllPrayerRequests());
+  }, [dispatch]);
 
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        return date.toISOString().split('T')[0];
-    };
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+  };
+
+  const formatTime = (dateString) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[1].split('.')[0];
+  };
 
     return (
         <div>
