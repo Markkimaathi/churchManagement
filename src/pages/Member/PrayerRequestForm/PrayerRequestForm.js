@@ -61,7 +61,7 @@ function PrayerRequestForm() {
                 id="description"
                 value={description}
                 onChange={handleDescriptionChange}
-                rows="4"
+                rows="3"
                 required
             ></textarea>
             <label htmlFor="requestDate">Request Date:</label>

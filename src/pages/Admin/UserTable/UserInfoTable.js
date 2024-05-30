@@ -11,8 +11,8 @@ import {
   FormControl,
   InputLabel
 } from '@mui/material';
-import { UpdateUserDetails } from '../../../redux/actions/UpdateUserAction';
 import { useDispatch } from 'react-redux';
+import { UpdateUserDetails } from '../../../redux/actions/UpdateUserAction';
 import './UserTable.css';
 
 const convertToAPIDate = (dateString) => {
@@ -37,7 +37,7 @@ const UserInfoTable = ({ users, formatDate, userId }) => {
       setSelectedUser(userToUpdate);
       setOpen(true);
       setFullName(userToUpdate.fullName);
-      setDateOfBirth(userToUpdate.dateOfBirth.split('T')[0]); 
+      setDateOfBirth(userToUpdate.dateOfBirth.split('T')[0]);
       setPhoneNumber(userToUpdate.phoneNumber);
       setInterests(userToUpdate.interests);
       setUserType(userToUpdate.userType);
@@ -55,25 +55,50 @@ const UserInfoTable = ({ users, formatDate, userId }) => {
   };
 
   const handleSave = async () => {
-    const id = selectedUser.userID;
+    try {
+      if (!selectedUser) {
+        throw new Error('No user selected');
+      }
 
-    const formData = {
-      userID: id,
-      fullName: fullName,
-      dateOfBirth: convertToAPIDate(dateOfBirth),
-      phoneNumber: phoneNumber,
-      interests: interests,
-      userType: userType
-    };
+      const id = selectedUser.userID;
 
-    // try {
-    //   const response = await dispatch(UpdateUserDetails(id, formData));
-    //   // Handle response
-    // } catch (error) {
-    //   // Handle error
-    // }
+      const formData = {
+        userID: id,
+        fullName: fullName,
+        dateOfBirth: convertToAPIDate(dateOfBirth),
+        phoneNumber: phoneNumber,
+        interests: interests,
+        userType: userType
+      };
 
-    handleClose();
+      console.log('formData:', formData);
+
+      const API_ENDPOINT_URL = `http://localhost:81/api/Users/Update/${id}`;
+
+      const response = await fetch(API_ENDPOINT_URL, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Error data:', errorData);
+        throw new Error('Failed to update user details');
+      }
+
+      const responseData = await response.json();
+      console.log(responseData);
+
+      // Dispatch the action after successful update
+      dispatch(UpdateUserDetails(formData));
+
+      handleClose();
+    } catch (error) {
+      console.error('Error updating user details:', error);
+    }
   };
 
   return (
