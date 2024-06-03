@@ -11,7 +11,7 @@ import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
 import PrayerRequestForm from './pages/Member/PrayerRequestForm/PrayerRequestForm';
-import Announce from './pages/Clergy/Announce';
+import Announce from './pages/Clergy/AnnounceTable/Announce';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfilePage from './components/ProfilePage/ProfilePage';
