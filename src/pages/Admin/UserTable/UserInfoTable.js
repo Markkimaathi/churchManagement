@@ -12,8 +12,9 @@ import {
   InputLabel
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { UpdateUserDetails } from '../../../redux/actions/UpdateUserAction';
+import { UpdateUserDetails } from '../../../redux/actions/UpdateUserAction';  // Ensure this path is correct
 import './UserTable.css';
+import { toast } from 'react-toastify';
 
 const convertToAPIDate = (dateString) => {
   const date = new Date(dateString);
@@ -28,6 +29,8 @@ const UserInfoTable = ({ users, formatDate, userId }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [interests, setInterests] = useState('');
   const [userType, setUserType] = useState('');
+  const [password, setPassword] = useState('');
+  const [imageUrI, setImageUrI] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,6 +44,8 @@ const UserInfoTable = ({ users, formatDate, userId }) => {
       setPhoneNumber(userToUpdate.phoneNumber);
       setInterests(userToUpdate.interests);
       setUserType(userToUpdate.userType);
+      setPassword(userToUpdate.password);
+      setImageUrI(userToUpdate.imageUrl);
     }
   }, [userId, users]);
 
@@ -59,53 +64,41 @@ const UserInfoTable = ({ users, formatDate, userId }) => {
       if (!selectedUser) {
         throw new Error('No user selected');
       }
-
+  
       const id = selectedUser.userID;
-
-      const formData = {
-        userID: id,
-        fullName: fullName,
+      const myForm = {
+        userID: 0,   
+        fullName,
         dateOfBirth: convertToAPIDate(dateOfBirth),
-        phoneNumber: phoneNumber,
-        interests: interests,
-        userType: userType
+        phoneNumber,
+        interests,
+        userType,
+        password,
+        imageUrl: imageUrI
       };
-
-      console.log('formData:', formData);
-
-      const API_ENDPOINT_URL = `http://localhost:81/api/Users/Update/${id}`;
-
-      const response = await fetch(API_ENDPOINT_URL, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Error data:', errorData);
-        throw new Error('Failed to update user details');
+  
+      try {
+        const response = await dispatch(UpdateUserDetails({ myForm, id }));
+       toast.success('User updated successfully:');
+      } catch (error) {
+        toast.error('Error updating user details:');
       }
-
-      const responseData = await response.json();
-      console.log(responseData);
-
-      // Dispatch the action after successful update
-      dispatch(UpdateUserDetails(formData));
-
+  
       handleClose();
+setTimeout(() => {
+  window.location.reload();
+}, 4000);
     } catch (error) {
       console.error('Error updating user details:', error);
     }
   };
+  
 
   return (
     <>
       {selectedUser && (
         <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>Update User Information</DialogTitle>
+          {/* <DialogTitle>Update User Information</DialogTitle> */}
           <DialogContent>
             <TextField
               autoFocus

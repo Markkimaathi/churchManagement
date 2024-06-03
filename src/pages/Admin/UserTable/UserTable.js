@@ -18,6 +18,7 @@ import { GetAllUsers } from '../../../redux/actions/LoginAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import UserInfoTable from './UserInfoTable'; 
 import './UserTable.css';
+import { ToastContainer } from 'react-toastify';
 
 export const UserTable = () => {
   const { allUsers, error, loading } = useSelector((state) => state.Users);
@@ -48,6 +49,7 @@ export const UserTable = () => {
         <LoaderComponent />
       ) : (
         <>
+            <ToastContainer />
           <TableContainer sx={{ maxHeight: '1500px' }} component={Paper}>
             <Table stickyHeader aria-label='simple table'>
               <TableHead>
@@ -91,8 +93,7 @@ export const UserTable = () => {
             </Table>
           </TableContainer>
 
-          <Dialog open={updateDialogOpen} onClose={handleCloseUpdateDialog} aria-labelledby="update-user-info-dialog">
-            <DialogTitle id="update-user-info-dialog">Update User Information</DialogTitle>
+        
             <DialogContent>
               {selectedUser && (
                 <UserInfoTable 
@@ -101,12 +102,7 @@ export const UserTable = () => {
                 />
               )}
             </DialogContent>
-            <DialogActions>
-              <Button onClick={handleCloseUpdateDialog} color="primary">
-                Close
-              </Button>
-            </DialogActions>
-          </Dialog>
+ 
         </>
       )}
     </div>
