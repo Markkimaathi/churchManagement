@@ -17,12 +17,19 @@ export const PrayerTable = () => {
   const { allPrayerRequests, error, loading } = useSelector((state) => state.PrayerRequests);
   const dispatch = useDispatch();
 
+  console.log(allPrayerRequests);
   useEffect(() => {
     dispatch(GetAllPrayerRequests());
   }, [dispatch]);
 
   const formatDate = (dateString) => {
+    if (!dateString) {
+      return '';  
+    }
     const date = new Date(dateString);
+    if (isNaN(date)) {
+      return '';   
+    }
     return date.toISOString().split('T')[0];
   };
 
@@ -31,43 +38,43 @@ export const PrayerTable = () => {
     return date.toISOString().split('T')[1].split('.')[0];
   };
 
-    return (
-        <div>
-          {loading ? (
-            <LoaderComponent />
-          ) : (
-            <TableContainer sx={{ maxHeight: '1500px' }} component={Paper}>
-              <Table stickyHeader aria-label='simple table'>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>PrayerRequestID</TableCell>
-                    <TableCell>Title</TableCell>
-                    <TableCell>Description</TableCell>
-                    <TableCell>RequestDate</TableCell>
-                    <TableCell>RequestedBy</TableCell>
-                    <TableCell>TimeCreated</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {allPrayerRequests.map((row) => (
-                    <TableRow
-                      key={row.id}
-                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                    >
-                      <TableCell>{row.id}</TableCell>
-                      <TableCell>{row.title}</TableCell>
-                      <TableCell>{formatDate(row.date)}</TableCell>
-                      <TableCell>{row.createdBy}</TableCell>
-                      <TableCell>{row.description}</TableCell>
-                      <TableCell>{formatTime(row.timeCreated)}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          )}
-        </div>
-      );
-    };
-    
-    export default PrayerTable;
+  return (
+    <div>
+      {loading ? (
+        <LoaderComponent />
+      ) : (
+        <TableContainer sx={{ maxHeight: '1500px' }} component={Paper}>
+          <Table stickyHeader aria-label='simple table'>
+            <TableHead>
+              <TableRow>
+                <TableCell>PrayerRequestID</TableCell>
+                <TableCell>Title</TableCell>
+                <TableCell>Description</TableCell>
+                <TableCell>RequestDate</TableCell>
+                <TableCell>RequestedBy</TableCell>
+                <TableCell>TimeCreated</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {allPrayerRequests.map((row) => (
+                <TableRow
+                  key={row.prayerRequestID}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell>{row.prayerRequestID}</TableCell>
+                  <TableCell>{row.title}</TableCell>
+                  <TableCell>{row.description}</TableCell>
+                  <TableCell>{formatDate(row.requestDate)}</TableCell>
+                  <TableCell>{row.requestedBy}</TableCell>
+                  <TableCell>{formatTime(row.timeCreated)}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
+    </div>
+  );
+};
+
+export default PrayerTable;

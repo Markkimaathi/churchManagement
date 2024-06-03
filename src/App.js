@@ -10,7 +10,6 @@ import EventsCalendar from './components/EventsCalendar/EventsCalendar';
 import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 import Announcements from './components/Announcements/Announcements';
-import PrayerRequests from './components/PrayerRequests/PrayerRequests';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
 import PrayerRequestForm from './pages/Member/PrayerRequestForm/PrayerRequestForm';
 import Announce from './pages/Clergy/Announce';
@@ -20,6 +19,7 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 import UserTable from './pages/Admin/UserTable/UserTable';
 import AnnouncementTable from './pages/Admin/AnnouncementTable/AnnouncementTable';
 import MemberTable from './pages/Member/MemberTable/MemberTable';
+import PrayerTable from './pages/Clergy/PrayerTable/PrayerTable';
 
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
                 <>
                   <Route path="/dashboard" element={<ClergyDashboard />} />
                   <Route path="/announce" element={<Announce />} />
-                  <Route path="/Prayer-Requests" element={<PrayerRequests/>} />
+                  <Route path="/PrayerTable" element={<PrayerTable/>} />
                   <Route path="/clergy-profile-management" element={<ClergyProfileManagement/>} />
                 </>
               )}
