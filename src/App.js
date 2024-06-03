@@ -9,7 +9,6 @@ import MainLogin from './pages/LoginRegister/MainLogin';
 import EventsCalendar from './components/EventsCalendar/EventsCalendar'; 
 import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
-import Announcements from './components/Announcements/Announcements';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
 import PrayerRequestForm from './pages/Member/PrayerRequestForm/PrayerRequestForm';
 import Announce from './pages/Clergy/Announce';
@@ -65,7 +64,6 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/events-calendar" element={<EventsCalendar />} />
               <Route path="*" element={<NotFound />} />
-              <Route path="/Announcements" element={<Announcements />} />
               <Route path="/ProfilePage" element={<ProfilePage />} />
             </Routes>
           </DefaultLayout>
