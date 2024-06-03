@@ -19,6 +19,7 @@ import UserTable from './pages/Admin/UserTable/UserTable';
 import AnnouncementTable from './pages/Admin/AnnouncementTable/AnnouncementTable';
 import MemberTable from './pages/Member/MemberTable/MemberTable';
 import PrayerTable from './pages/Clergy/PrayerTable/PrayerTable';
+import AnnounceForm from './pages/Clergy/AnnouncementForm/AnnounceForm';
 
 
 function App() {
@@ -49,7 +50,7 @@ function App() {
               {userRole === '1' && (
                 <>
                   <Route path="/dashboard" element={<ClergyDashboard />} />
-                  <Route path="/announce" element={<Announce />} />
+                  <Route path="/announcements" element={<AnnounceForm />} />
                   <Route path="/PrayerTable" element={<PrayerTable/>} />
                   <Route path="/clergy-profile-management" element={<ClergyProfileManagement/>} />
                 </>
