@@ -12,7 +12,7 @@ import {
   InputLabel
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { UpdateUserDetails } from '../../../redux/actions/UpdateUserAction';  // Ensure this path is correct
+import { UpdateUserDetails } from '../../../redux/actions/UpdateUserAction'; 
 import './UserTable.css';
 import { toast } from 'react-toastify';
 

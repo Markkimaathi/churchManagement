@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AnnounceForm.css';
 
-function AnnounceForm() {
+const API_ENDPOINT = 'http://localhost:81/api/Announcements';
+
+function AnnounceForm({ onSubmitSuccess }) {
     const [id, setId] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -33,15 +35,47 @@ function AnnounceForm() {
         setTimeCreated(event.target.value);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(`ID: ${id}, Title: ${title}, Description: ${description}, Date: ${date}, Created By: ${createdBy}, Time Created: ${timeCreated}`);
-        setId('');
-        setTitle('');
-        setDescription('');
-        setDate('');
-        setCreatedBy('');
-        setTimeCreated('');
+
+        const announcement = {
+            id,
+            title,
+            description,
+            date,
+            createdBy,
+            timeCreated,
+        };
+
+        try {
+            const response = await fetch(API_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(announcement),
+            });
+
+            if (response.ok) {
+                const createdAnnouncement = await response.json();
+                console.log('Announcement created:', createdAnnouncement);
+
+                if (onSubmitSuccess) {
+                    onSubmitSuccess(createdAnnouncement);
+                }
+
+                setId('');
+                setTitle('');
+                setDescription('');
+                setDate('');
+                setCreatedBy('');
+                setTimeCreated('');
+            } else {
+                console.error('Failed to create announcement:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error creating announcement:', error);
+        }
     };
 
     return (
