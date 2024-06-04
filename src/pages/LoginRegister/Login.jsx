@@ -22,9 +22,11 @@ export const Login = (props) => {
 
             if (typeof response.payload === 'object' && response.payload !== null) {
                 const userRole = await response.payload.userType;
+                const loggedinUser = await response.payload.userID;
                 toast.success('Logged in Successfully')
                 setTimeout(() => {
                     localStorage.setItem('userRole', userRole);
+                    localStorage.setItem('UserID', loggedinUser);
                     props.setUserRole(userRole);
                     window.location.reload();
                 }, 2000);

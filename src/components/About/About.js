@@ -26,10 +26,19 @@ const About = () => {
     additionalInfo: "Community Church is a place where everyone is welcome, regardless of background or beliefs. Whether you're exploring faith for the first time or have been a follower of Jesus for years, there's a place for you here. We invite you to join us as we journey together in faith, hope, and love."
   };
 
+const user = localStorage.getItem('userRole')
+const user1 = parseInt(user)
+
+
   return (
     <div className='main-page'>
       <h2>About {churchInfo.name}</h2>
+     {user1 === 2 ?
       <p><strong>Mission:</strong> {churchInfo.mission}</p>
+      :
+      null
+
+     }
       <p><strong>Vision:</strong> {churchInfo.vision}</p>
       <h3>History</h3>
       <p>{churchInfo.history}</p>

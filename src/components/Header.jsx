@@ -8,6 +8,7 @@ function Header({OpenSidebar}) {
 const navigate = useNavigate();
   const logout= ()=>{
     localStorage.removeItem('userRole'); 
+    localStorage.removeItem('UserID'); 
     window.location.reload();
   }
   const handleProfile = ()=>{
