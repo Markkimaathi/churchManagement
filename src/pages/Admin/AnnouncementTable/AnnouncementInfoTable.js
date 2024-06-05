@@ -1,112 +1,118 @@
-import React, { useState } from 'react';
-import './AnnouncementTable.css';
-import { AddAnnouncement } from '../../../redux/actions/AnnouncementsAction';
+import React, { useState, useEffect } from 'react';
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  TextField,
+  DialogActions
+} from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { UpdateAnnouncementDetails } from '../../../redux/actions/UpdateAnnouncementAction'; 
+import { toast } from 'react-toastify';
 
-const API_ENDPOINT = 'http://localhost:81/api/Announcements';
+const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
+  const [open, setOpen] = useState(true); // Open the dialog by default
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
+  const [title, setTitle] = useState('');
+  const [date, setDate] = useState('');
+  const [createdBy, setCreatedBy] = useState('');
+  const [description, setDescription] = useState('');
+  const dispatch = useDispatch();
 
-function AddAnnouncementTable({ onSubmitSuccess }) {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [date, setDate] = useState('');
-    const dispatch = useDispatch();
-    const user = localStorage.getItem('UserID');
+  useEffect(() => {
+    const announcementToUpdate = announcements.find(announcement => announcement.id === announcementId);
 
-    const handleTitleChange = (event) => {
-        setTitle(event.target.value);
-    };
+    if (announcementId && announcementToUpdate) {
+      setSelectedAnnouncement(announcementToUpdate);
+      setTitle(announcementToUpdate.title);
+      setDate(announcementToUpdate.date.split('T')[0]);
+      setCreatedBy(announcementToUpdate.createdBy);
+      setDescription(announcementToUpdate.description);
+    }
+  }, [announcementId, announcements]);
 
-    const handleDescriptionChange = (event) => {
-        setDescription(event.target.value);
-    };
+  const handleClose = () => {
+    setOpen(false);
+    onClose();
+  };
 
-    const handleDateChange = (event) => {
-        setDate(event.target.value);
-    };
+  const handleSave = async () => {
+    try {
+      if (!selectedAnnouncement) {
+        throw new Error('No announcement selected');
+      }
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+      const id = selectedAnnouncement.id;
+      const myForm = {
+        title,
+        date,
+        createdBy, 
+        description
+      };
 
-        const myForm = {
-            id: 0,
-            title,
-            description,
-            createdBy: user,
-            date: new Date(date).toISOString(),
-            timeCreated: new Date().toISOString(),
-        };
+      await dispatch(UpdateAnnouncementDetails(myForm, id));
+      toast.success('Announcement updated successfully');
+      handleClose();
 
-        try {
-            await dispatch(AddAnnouncement(myForm));
-            toast.success('Announcement added successfully');
-            setTimeout(() => {
-                window.location.reload();
-            }, 4000); // Hides the message after 4 seconds and then reloads the page
-        } catch (error) {
-            console.error('Error creating announcement:', error);
-        }
-    };
+      // Refresh the page after 4 seconds
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
+    } catch (error) {
+      console.error('Error updating announcement details:', error);
+      toast.error('Error updating announcement details');
+    }
+  };
 
-    return (
-        <div>
-            <ToastContainer
-                position="top-right"
-                autoClose={4000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-            <table>
-                <caption>Announce Table</caption>
-                <tbody>
-                    <tr>
-                        <td>Title:</td>
-                        <td>
-                            <input
-                                type="text"
-                                value={title}
-                                onChange={handleTitleChange}
-                                required
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Description:</td>
-                        <td>
-                            <textarea
-                                value={description}
-                                onChange={handleDescriptionChange}
-                                rows="3"
-                                required
-                            ></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Date:</td>
-                        <td>
-                            <input
-                                type="date"
-                                value={date}
-                                onChange={handleDateChange}
-                                required
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colSpan="2">
-                            <button type="submit" onClick={handleSubmit}>Submit Announcement</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    );
-}
+  return (
+    <Dialog open={open} onClose={handleClose}>
+      <DialogTitle>Update Announcement</DialogTitle>
+      <DialogContent>
+        <TextField
+          autoFocus
+          margin="dense"
+          label="Title"
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          fullWidth
+        />
+        <TextField
+          margin="dense"
+          label="Date"
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          fullWidth
+        />
+        <TextField
+          margin="dense"
+          label="Created By"
+          type="text"
+          value={createdBy}
+          onChange={(e) => setCreatedBy(e.target.value)}
+          fullWidth
+        />
+        <TextField
+          margin="dense"
+          label="Description"
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          fullWidth
+        />
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose} color="primary">
+          Cancel
+        </Button>
+        <Button onClick={handleSave} color="primary">
+          Save
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
 
-export default AddAnnouncementTable;
+export default AnnouncementInfoTable;
