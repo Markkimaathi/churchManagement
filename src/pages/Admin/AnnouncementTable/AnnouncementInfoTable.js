@@ -12,7 +12,7 @@ import { UpdateAnnouncementDetails } from '../../../redux/actions/UpdateAnnounce
 import { toast } from 'react-toastify';
 
 const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
-  const [open, setOpen] = useState(true); // Open the dialog by default
+  const [open, setOpen] = useState(true); 
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
@@ -55,7 +55,6 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
       toast.success('Announcement updated successfully');
       handleClose();
 
-      // Refresh the page after 4 seconds
       setTimeout(() => {
         window.location.reload();
       }, 4000);
