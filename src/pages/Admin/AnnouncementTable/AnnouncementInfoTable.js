@@ -22,6 +22,8 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
   const [timeCreated, setTimeCreated] = useState('');
   const dispatch = useDispatch();
 
+  const user = localStorage.getItem('UserID')
+
   useEffect(() => {
     const announcementToUpdate = announcements.find(announcement => announcement.id === announcementId);
 
@@ -50,7 +52,7 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
         id: id,
         title,
         date: new Date(date).toISOString(),
-        createdBy, 
+        createdBy: user, 
         description,
         timeCreated
       };

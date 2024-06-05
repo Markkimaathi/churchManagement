@@ -25,9 +25,6 @@ const user = localStorage.getItem('UserID')
         setDate(event.target.value);
     };
 
-
- 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 
