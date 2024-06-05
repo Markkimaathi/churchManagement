@@ -1,3 +1,5 @@
+// AllAnnouncementsTable.js
+
 import React, { useState, useEffect } from 'react';
 import {
   TableContainer,
@@ -10,15 +12,17 @@ import {
   Button
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { GetAllAnnouncements } from '../../../redux/actions/AnnouncementsAction';
+import { GetAllAnnouncements, AddAnnouncement } from '../../../redux/actions/AnnouncementsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
-import AnnouncementInfoTable from './AnnouncementInfoTable';
+import AnnouncementInfoTable from './AnnouncementInfoTable'
+import AddAnnouncementTable from './AddAnnouncementTable';
 import './AnnouncementTable.css';
 
 export const AllAnnouncementsTable = () => {
   const { allAnnouncements, error, loading } = useSelector((state) => state.Announcements);
   const dispatch = useDispatch();
   const [selectedAnnouncementId, setSelectedAnnouncementId] = useState(null);
+  const [showAddAnnouncement, setShowAddAnnouncement] = useState(false);
 
   useEffect(() => {
     dispatch(GetAllAnnouncements());
@@ -42,8 +46,23 @@ export const AllAnnouncementsTable = () => {
     setSelectedAnnouncementId(null);
   };
 
+  const handleAddAnnouncement = () => {
+    setShowAddAnnouncement(true);
+  };
+
+  const handleAddNewAnnouncement = (newAnnouncementData) => {
+    dispatch(AddAnnouncement(newAnnouncementData));
+    setShowAddAnnouncement(false);
+  };
+
   return (
     <div>
+      <Button variant="contained" color="primary" onClick={handleAddAnnouncement}>
+        Add Announcement
+      </Button>
+      {showAddAnnouncement && (
+        <AddAnnouncementTable onSubmit={handleAddNewAnnouncement} />
+      )}
       {loading ? (
         <LoaderComponent />
       ) : (

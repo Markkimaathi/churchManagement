@@ -3,7 +3,6 @@ import './AnnouncementTable.css';
 import { AddAnnouncement } from '../../../redux/actions/AnnouncementsAction';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const API_ENDPOINT = 'http://localhost:81/api/Announcements';
 
@@ -11,6 +10,7 @@ function AddAnnouncementTable({ onSubmitSuccess }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [date, setDate] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
     const dispatch = useDispatch();
     const user = localStorage.getItem('UserID');
 
@@ -42,8 +42,9 @@ function AddAnnouncementTable({ onSubmitSuccess }) {
             await dispatch(AddAnnouncement(myForm));
             toast.success('Announcement added successfully');
             setTimeout(() => {
+                setSuccessMessage('');
                 window.location.reload();
-            }, 4000); // Hides the message after 4 seconds and then reloads the page
+            }, 4000); 
         } catch (error) {
             console.error('Error creating announcement:', error);
         }
@@ -51,17 +52,7 @@ function AddAnnouncementTable({ onSubmitSuccess }) {
 
     return (
         <div>
-            <ToastContainer
-                position="top-right"
-                autoClose={4000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+            {successMessage && <div className="success-message">{successMessage}</div>}
             <table>
                 <caption>Announce Table</caption>
                 <tbody>
