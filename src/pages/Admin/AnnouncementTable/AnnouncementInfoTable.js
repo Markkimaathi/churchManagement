@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { UpdateAnnouncementDetails } from '../../../redux/actions/UpdateAnnouncementAction'; 
-import { deleteAnnouncement } from '../../../redux/actions/DeleteAnnouncementAction.js'; // Corrected import
+import { deleteAnnouncement } from '../../../redux/actions/DeleteAnnouncementAction.js';
 import { toast } from 'react-toastify';
 
 const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
@@ -58,7 +58,7 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
 
       setTimeout(() => {
         window.location.reload();
-      }, 4000);
+      }, 3000);
     } catch (error) {
       console.error('Error updating announcement details:', error);
       toast.error('Error updating announcement details');
