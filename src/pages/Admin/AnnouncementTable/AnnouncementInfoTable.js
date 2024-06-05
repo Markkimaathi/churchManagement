@@ -11,7 +11,6 @@ import { useDispatch } from 'react-redux';
 import { UpdateAnnouncementDetails } from '../../../redux/actions/UpdateAnnouncementAction'; 
 import { deleteAnnouncement } from '../../../redux/actions/DeleteAnnouncementAction.js';
 import { toast } from 'react-toastify';
-import { amber } from '@mui/material/colors';
 
 const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
   const [open, setOpen] = useState(true); 
@@ -20,7 +19,7 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
   const [date, setDate] = useState('');
   const [createdBy, setCreatedBy] = useState('');
   const [description, setDescription] = useState('');
-  const [timeCreated, settimeCreated] = useState('');
+  const [timeCreated, setTimeCreated] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,7 +31,7 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
       setDate(announcementToUpdate.date.split('T')[0]);
       setCreatedBy(announcementToUpdate.createdBy);
       setDescription(announcementToUpdate.description);
-      settimeCreated(announcementToUpdate.timeCreated);
+      setTimeCreated(announcementToUpdate.timeCreated);
     }
   }, [announcementId, announcements]);
 
@@ -46,7 +45,7 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
       if (!selectedAnnouncement) {
         throw new Error('No announcement selected');
       }
-       const id = announcementId
+      const id = announcementId;
       const myForm = {
         id: id,
         title,
@@ -56,39 +55,52 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
         timeCreated
       };
 
-    try {
-    await dispatch(UpdateAnnouncementDetails({myForm, id})); 
-     toast.success('Announcement updated successfully:');
-    } catch (error) {
-      toast.error('Error updating Announcement details:');
-    }
+      try {
+        await dispatch(UpdateAnnouncementDetails({ myForm, id })); 
+        toast.success('Announcement updated successfully');
+      } catch (error) {
+        toast.error('Error updating Announcement details');
+      }
 
-    handleClose();
-setTimeout(() => {
-window.location.reload();
-}, 4000);
-  } catch (error) {
-    console.error('Error updating Announcement details:', error);
-  }}
+      handleClose();
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
+    } catch (error) {
+      console.error('Error updating Announcement details:', error);
+    }
+  };
 
   const handleDelete = async () => {
     try {
       if (!selectedAnnouncement) {
         throw new Error('No announcement selected');
       }
+      const id = announcementId;
+      const myForm = {
+        id: id,
+        title,
+        date: new Date(date).toISOString(),
+        createdBy, 
+        description,
+        timeCreated
+      };
 
-    
 
-      await dispatch(deleteAnnouncement(announcementId));
-      toast.success('Announcement deleted successfully');
-      handleClose();
+      try {
+        await dispatch(deleteAnnouncement({ myForm, id }));
+        toast.success('Announcement deleted successfully');
+        handleClose();
 
-      setTimeout(() => {
-        window.location.reload();
-      }, 4000);
+        setTimeout(() => {
+          window.location.reload();
+        }, 4000);
+      } catch (error) {
+        toast.error('Error deleting announcement');
+        console.error('Error deleting announcement:', error);
+      }
     } catch (error) {
       console.error('Error deleting announcement:', error);
-      toast.error('Error deleting announcement');
     }
   };
 
@@ -113,7 +125,6 @@ window.location.reload();
           onChange={(e) => setDate(e.target.value)}
           fullWidth
         />
-   
         <TextField
           margin="dense"
           label="Description"
