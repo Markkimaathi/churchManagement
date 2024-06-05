@@ -9,6 +9,7 @@ import AnnouncementTable from '../pages/Admin/AnnouncementTable/AnnouncementTabl
 import MemberTable from '../pages/Member/MemberTable/MemberTable.js';
 import PrayerTable from '../pages/Clergy/PrayerTable/PrayerTable.js';
 import AnnounceForm from '../pages/Clergy/AnnouncementForm/AnnounceForm.js';
+import AllAnnouncementsTable from '../pages/Admin/AllAnnouncements/AllAnnouncementsTable.js';
 
 // Define sidebar data for the admin role
 export const adminSidebarData = [
@@ -26,7 +27,8 @@ export const adminSidebarData = [
   {
     title: 'Announcements',
     icon: FaBell,
-    link: '/table-announcements'
+    link: '/table-announcements',
+    component: AnnouncementTable
   },
   {
     title: 'About',
@@ -39,6 +41,12 @@ export const adminSidebarData = [
     link: '/events-calendar',
     component: EventsCalendar
   }, 
+  {
+    title: 'All Announcements',
+    icon: FaBell,
+    link: '/all-announcements',
+    component: AllAnnouncementsTable
+  }
 ]; 
 
 
