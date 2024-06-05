@@ -11,7 +11,6 @@ import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
 import PrayerRequestForm from './pages/Member/PrayerRequestForm/PrayerRequestForm';
-import Announce from './pages/Clergy/AnnouncementForm/AnnounceForm';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfilePage from './components/ProfilePage/ProfilePage';
@@ -20,6 +19,7 @@ import AnnouncementTable from './pages/Admin/AnnouncementTable/AnnouncementTable
 import MemberTable from './pages/Member/MemberTable/MemberTable';
 import PrayerTable from './pages/Clergy/PrayerTable/PrayerTable';
 import AnnounceForm from './pages/Clergy/AnnouncementForm/AnnounceForm';
+import AllAnnouncementsTable from './pages/Admin/AllAnnouncements/AllAnnouncementsTable';
 
 
 function App() {
@@ -60,6 +60,7 @@ function App() {
                   <Route path="/dashboard" element={<AdminDashboard />} />
                   <Route path="/all-users" element={<UserTable />} />
                   <Route path="/table-announcements" element={<AnnouncementTable/>} />
+                  <Route path="/all-announcements" element={<AllAnnouncementsTable/>} />
                 </>
               )}
               <Route path="/about" element={<About />} />
