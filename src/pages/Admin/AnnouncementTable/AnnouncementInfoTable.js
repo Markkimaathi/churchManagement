@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { UpdateAnnouncementDetails } from '../../../redux/actions/UpdateAnnouncementAction'; 
-import { DeleteAnnouncement } from '../../../redux/actions/DeleteAnnouncementAction.js'; 
+import { deleteAnnouncement } from '../../../redux/actions/DeleteAnnouncementAction.js'; // Corrected import
 import { toast } from 'react-toastify';
 
 const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
@@ -73,7 +73,7 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
 
       const id = selectedAnnouncement.id;
 
-      await dispatch(DeleteAnnouncement(id));
+      await dispatch(deleteAnnouncement(id));
       toast.success('Announcement deleted successfully');
       handleClose();
 
@@ -125,7 +125,7 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleDelete} color="secondary">
+        <Button onClick={handleDelete} color="primary">
           Delete
         </Button>
         <Button onClick={handleClose} color="primary">
