@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 
   //Update
-  export const UpdateAnnouncementDetails = createAsyncThunk('fetch/UpdateUserDetails', async ({myForm, id}) => {
+  export const UpdateAnnouncementDetails = createAsyncThunk('fetch/UpdateUserDetails', async ({id}) => {
     try {
       const API_ENDPOINT_URL = `http://localhost:81/api/Announcement/Update/${id}`;
       const response = await fetch(API_ENDPOINT_URL, {
@@ -10,7 +10,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
         headers: {
           'Content-Type': 'application/json',
         },       
-        body: JSON.stringify(myForm)
       });  
   
       if (response.ok) {

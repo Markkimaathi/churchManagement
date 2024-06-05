@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   TableContainer,
   Table,
@@ -6,16 +6,19 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Paper
+  Paper,
+  Button
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllAnnouncements } from '../../../redux/actions/AnnouncementsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
+import AnnouncementInfoTable from './AnnouncementInfoTable';
 import './AnnouncementTable.css';
 
-export const AnnouncementTable = () => {
+export const AllAnnouncementsTable = () => {
   const { allAnnouncements, error, loading } = useSelector((state) => state.Announcements);
   const dispatch = useDispatch();
+  const [selectedAnnouncementId, setSelectedAnnouncementId] = useState(null);
 
   useEffect(() => {
     dispatch(GetAllAnnouncements());
@@ -29,6 +32,14 @@ export const AnnouncementTable = () => {
   const formatTime = (dateString) => {
     const date = new Date(dateString);
     return date.toISOString().split('T')[1].split('.')[0];
+  };
+
+  const handleUpdate = (id) => {
+    setSelectedAnnouncementId(id);
+  };
+
+  const handleCloseDialog = () => {
+    setSelectedAnnouncementId(null);
   };
 
   return (
@@ -46,6 +57,7 @@ export const AnnouncementTable = () => {
                 <TableCell>Created By</TableCell>
                 <TableCell>Description</TableCell>
                 <TableCell>Time Created</TableCell>
+                <TableCell>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -60,14 +72,30 @@ export const AnnouncementTable = () => {
                   <TableCell>{row.createdBy}</TableCell>
                   <TableCell>{row.description}</TableCell>
                   <TableCell>{formatTime(row.timeCreated)}</TableCell>
+                  <TableCell>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={() => handleUpdate(row.id)}
+                    >
+                      Update
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
       )}
+      {selectedAnnouncementId && (
+        <AnnouncementInfoTable
+          announcementId={selectedAnnouncementId}
+          announcements={allAnnouncements}
+          onClose={handleCloseDialog}
+        />
+      )}
     </div>
   );
 };
 
-export default AnnouncementTable;
+export default AllAnnouncementsTable;
