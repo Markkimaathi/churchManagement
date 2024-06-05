@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { UpdateAnnouncementDetails } from '../../../redux/actions/UpdateAnnouncementAction'; 
+import { DeleteAnnouncement } from '../../../redux/actions/DeleteAnnouncementAction.js'; 
 import { toast } from 'react-toastify';
 
 const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
@@ -64,6 +65,27 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
     }
   };
 
+  const handleDelete = async () => {
+    try {
+      if (!selectedAnnouncement) {
+        throw new Error('No announcement selected');
+      }
+
+      const id = selectedAnnouncement.id;
+
+      await dispatch(DeleteAnnouncement(id));
+      toast.success('Announcement deleted successfully');
+      handleClose();
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
+    } catch (error) {
+      console.error('Error deleting announcement:', error);
+      toast.error('Error deleting announcement');
+    }
+  };
+
   return (
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>Update Announcement</DialogTitle>
@@ -103,6 +125,9 @@ const AnnouncementInfoTable = ({ announcementId, announcements, onClose }) => {
         />
       </DialogContent>
       <DialogActions>
+        <Button onClick={handleDelete} color="secondary">
+          Delete
+        </Button>
         <Button onClick={handleClose} color="primary">
           Cancel
         </Button>
