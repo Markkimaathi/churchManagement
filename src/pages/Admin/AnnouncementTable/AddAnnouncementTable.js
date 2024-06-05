@@ -4,8 +4,6 @@ import { AddAnnouncement } from '../../../redux/actions/AnnouncementsAction';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 
-const API_ENDPOINT = 'http://localhost:81/api/Announcements';
-
 function AddAnnouncementTable({ onSubmitSuccess }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -28,6 +26,7 @@ function AddAnnouncementTable({ onSubmitSuccess }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
 
         const myForm = {
             id: 0,

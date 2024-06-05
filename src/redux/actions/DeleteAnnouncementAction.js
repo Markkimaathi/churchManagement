@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-
-export const deleteAnnouncement = createAsyncThunk('fetch/deleteAnnouncement', async ({id}) => {
+export const deleteAnnouncement = createAsyncThunk('fetch/deleteAnnouncement', async ({ id }, { rejectWithValue }) => {
   try {
     const API_ENDPOINT_URL = `http://localhost:81/api/Announcements/Delete/${id}`;
     const response = await fetch(API_ENDPOINT_URL, {
@@ -12,11 +11,11 @@ export const deleteAnnouncement = createAsyncThunk('fetch/deleteAnnouncement', a
       const data = await response.text();
       return data;
     } else {
-      const data = await response.text();
-      return data;
+      const errorData = await response.text();
+      return rejectWithValue(errorData);
     }
   } catch (error) {
     console.error('Error during the DELETE request:', error);
-    throw new Error(`Error during the DELETE request: ${error.message}`);
+    return rejectWithValue(`Error during the DELETE request: ${error.message}`);
   }
 });

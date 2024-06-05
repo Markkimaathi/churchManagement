@@ -17,7 +17,7 @@ import AddAnnouncementTable from './AddAnnouncementTable';
 import './AnnouncementTable.css';
 
 export const AllAnnouncementsTable = () => {
-  const { allAnnouncements, error, loading } = useSelector((state) => state.Announcements);
+  const { allAnnouncements,error, loading } = useSelector((state) => state.Announcements);
   const dispatch = useDispatch();
   const [selectedAnnouncementId, setSelectedAnnouncementId] = useState(null);
   const [showAddAnnouncement, setShowAddAnnouncement] = useState(false);

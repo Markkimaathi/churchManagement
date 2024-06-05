@@ -4,7 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
   
   export const UpdateAnnouncementDetails = createAsyncThunk('fetch/UpdateAnnouncementDetails', async ({myForm, id}) => {
     try {
-      const API_ENDPOINT_URL = `http://localhost:81/api/Announcements/Update/${id}`;
+      const API_ENDPOINT_URL = `http://localhost:81/api/Announcements/${id}`;
 
       const response = await fetch(API_ENDPOINT_URL, {
         method: 'PUT',
