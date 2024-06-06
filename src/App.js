@@ -10,7 +10,7 @@ import EventsCalendar from './components/EventsCalendar/EventsCalendar';
 import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
-import PrayerRequestForm from './pages/Member/PrayerRequestForm/PrayerRequestForm';
+import PrayerRequestForm from './components/PrayerRequests/PrayerRequestForm';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfilePage from './components/ProfilePage/ProfilePage';
