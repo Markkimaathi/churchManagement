@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { UpdateUserDetails } from '../../../redux/actions/UpdateUserAction'; 
+import { DeleteUser } from '../../../redux/actions/DeleteUserAction';
 import './UserTable.css';
 import { toast } from 'react-toastify';
 
@@ -64,7 +65,7 @@ const UserInfoTable = ({ users, formatDate, userId }) => {
       if (!selectedUser) {
         throw new Error('No user selected');
       }
-  
+
       const id = selectedUser.userID;
       const myForm = {
         userID: 0,   
@@ -76,29 +77,52 @@ const UserInfoTable = ({ users, formatDate, userId }) => {
         password,
         imageUrl: imageUrI
       };
-  
+
       try {
         const response = await dispatch(UpdateUserDetails({ myForm, id }));
-       toast.success('User updated successfully:');
+        toast.success('User updated successfully:');
       } catch (error) {
         toast.error('Error updating user details:');
       }
-  
+
       handleClose();
-setTimeout(() => {
-  window.location.reload();
-}, 4000);
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
     } catch (error) {
       console.error('Error updating user details:', error);
     }
   };
-  
+
+  const handleDelete = async () => {
+    try {
+      if (!selectedUser) {
+        throw new Error('No user selected');
+      }
+
+      const id = selectedUser.userID;
+      const myForm = {}; 
+
+      try {
+        const response = await dispatch(DeleteUser({ myForm, id }));
+        toast.success('User deleted successfully:');
+      } catch (error) {
+        toast.error('Error deleting user:');
+      }
+
+      handleClose();
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
 
   return (
     <>
       {selectedUser && (
         <Dialog open={open} onClose={handleClose}>
-          {/* <DialogTitle>Update User Information</DialogTitle> */}
           <DialogContent>
             <TextField
               autoFocus
@@ -151,6 +175,9 @@ setTimeout(() => {
             </Button>
             <Button onClick={handleSave} color="primary">
               Save
+            </Button>
+            <Button onClick={handleDelete} color="secondary">
+              Delete
             </Button>
           </DialogActions>
         </Dialog>
