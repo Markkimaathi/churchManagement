@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   TableContainer,
   Table,
@@ -6,18 +6,20 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Paper
+  Paper,
+  Button
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllPrayerRequests } from '../../../redux/actions/PrayerRequestsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
+import PrayerRequestForm from './PrayerRequestForm';
 import './PrayerRequestsForm.css';
 
 export const AllRequestsTable = () => {
   const { allPrayerRequests, error, loading } = useSelector((state) => state.PrayerRequests);
   const dispatch = useDispatch();
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
-  console.log(allPrayerRequests);
   useEffect(() => {
     dispatch(GetAllPrayerRequests());
   }, [dispatch]);
@@ -38,8 +40,16 @@ export const AllRequestsTable = () => {
     return date.toISOString().split('T')[1].split('.')[0];
   };
 
+  const handleAddRequestClick = () => {
+    setIsFormOpen(!isFormOpen);
+  };
+
   return (
     <div>
+      <Button variant="contained" color="primary" onClick={handleAddRequestClick}>
+        {isFormOpen ? 'Close Prayer Request Form' : 'Add Prayer Request'}
+      </Button>
+      {isFormOpen && <PrayerRequestForm onSubmitSuccess={() => setIsFormOpen(false)} />}
       {loading ? (
         <LoaderComponent />
       ) : (

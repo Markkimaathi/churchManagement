@@ -107,11 +107,6 @@ export const memberSidebarData = [
     component: EventsCalendar 
   },
   {
-    title: 'Prayer Requests',
-    icon: BsChatDotsFill,
-    link: '/prayer-requests'
-  },
-  {
     title: 'About',
     icon: BsMenuButtonWideFill,
     link: '/about'
@@ -126,6 +121,6 @@ export const memberSidebarData = [
     title: 'Prayers',
     icon: BsChatDotsFill,
     link: '/PrayerTable',
-    component: PrayerTable
+    component: AllRequestsTable
   },
 ];

@@ -10,7 +10,6 @@ import EventsCalendar from './components/EventsCalendar/EventsCalendar';
 import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
-import PrayerRequestForm from './pages/Member/PrayerRequests/PrayerRequestForm';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfilePage from './components/ProfilePage/ProfilePage';
@@ -45,7 +44,7 @@ function App() {
                   <Route path="/dashboard" element={<MemberDashboard />} />
                   <Route path="/profile-management" element={<ProfileManagement />} />
                   <Route path="/MemberTable" element={<MemberTable/>} />
-                  <Route path="/prayer-requests" element={<PrayerRequestForm />} />
+                  <Route path="/PrayerTable" element={<AllRequestsTable/>} />
                 </>
               )}
               {userRole === '1' && (
@@ -68,7 +67,6 @@ function App() {
               <Route path="/events-calendar" element={<EventsCalendar />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/ProfilePage" element={<ProfilePage />} />
-              <Route path="/PrayerTable" element={<PrayerTable/>} />
             </Routes>
           </DefaultLayout>
         </div>
