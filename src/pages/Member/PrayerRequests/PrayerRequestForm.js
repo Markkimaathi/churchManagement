@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import './PrayerRequestsForm.css';
+import { AddPrayerRequests } from '../../../redux/actions/AddPrayerRequestsAction';
+import { useDispatch } from 'react-redux';
 
-function PrayerRequestForm() {
-    const [prayerRequestID, setPrayerRequestID] = useState('');
+const API_ENDPOINT = 'http://localhost:81/api/PrayerRequests';
+
+const PrayerRequestForm = ({ onSubmitSuccess }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [requestDate, setRequestDate] = useState('');
-    const [requestedBy, setRequestedBy] = useState('');
+    const dispatch = useDispatch();
 
-    const handleIDChange = (event) => {
-        setPrayerRequestID(event.target.value);
-    };
+    const user = localStorage.getItem('UserID');
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -20,34 +21,34 @@ function PrayerRequestForm() {
         setDescription(event.target.value);
     };
 
-    const handleRequestDateChange = (event) => {
+    const handleDateChange = (event) => {
         setRequestDate(event.target.value);
     };
 
-    const handleRequestedByChange = (event) => {
-        setRequestedBy(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(`ID: ${prayerRequestID}, Title: ${title}, Description: ${description}, Request Date: ${requestDate}, Requested By: ${requestedBy}`);
-        setPrayerRequestID('');
-        setTitle('');
-        setDescription('');
-        setRequestDate('');
-        setRequestedBy('');
-    };
 
+        const myForm = {
+            id: 0,
+            title,
+            description,
+            createdBy: user,
+            date: new Date(requestDate).toISOString(),
+            timeCreated: new Date().toISOString(),
+        };
+
+        try {
+            const response =  await dispatch(AddPrayerRequests(myForm))
+ console.log("added succesfully")
+             
+        } catch (error) {
+            console.error('Error creating request:', error);
+        }
+    };
     return (
         <form onSubmit={handleSubmit}>
             <h2>Prayer Request Form</h2>
-            <label htmlFor="prayerRequestID">Prayer Request ID:</label>
-            <input
-                type="text"
-                id="prayerRequestID"
-                value={prayerRequestID}
-                onChange={handleIDChange}
-            />
+           
             <label htmlFor="title">Title:</label>
             <input
                 type="text"
@@ -69,19 +70,13 @@ function PrayerRequestForm() {
                 type="date"
                 id="requestDate"
                 value={requestDate}
-                onChange={handleRequestDateChange}
-            />
-            <label htmlFor="requestedBy">Requested By:</label>
-            <input
-                type="text"
-                id="requestedBy"
-                value={requestedBy}
-                onChange={handleRequestedByChange}
+                onChange={handleDateChange}
                 required
             />
-            <button type="submit">Submit Request</button>
+            
+            <button type="submit">Submit Prayer Request</button>
         </form>
     );
-}
+};
 
 export default PrayerRequestForm;

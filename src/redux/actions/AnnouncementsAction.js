@@ -22,8 +22,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
       return data; 
     }
   } catch (error) {
-    console.error('Error during the POST request:', error);
-    throw new Error(`Error during the POST request: ${error.message}`);
+    console.error('Error during the GET request:', error);
+    throw new Error(`Error during the GET request: ${error.message}`);
   }
 });
 

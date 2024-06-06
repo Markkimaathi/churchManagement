@@ -10,7 +10,7 @@ import EventsCalendar from './components/EventsCalendar/EventsCalendar';
 import NotFound from './components/NotFound/NotFound';
 import ProfileManagement from './pages/Member/ProfileManagement';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
-import PrayerRequestForm from './components/PrayerRequests/PrayerRequestForm';
+import PrayerRequestForm from './pages/Member/PrayerRequests/PrayerRequestForm';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfilePage from './components/ProfilePage/ProfilePage';
@@ -20,6 +20,7 @@ import MemberTable from './pages/Member/MemberTable/MemberTable';
 import PrayerTable from './pages/Clergy/PrayerTable/PrayerTable';
 import AnnounceForm from './pages/Clergy/AnnouncementForm/AnnounceForm';
 import AllAnnouncementsTable from './pages/Admin/AllAnnouncements/AllAnnouncementsTable';
+import AllRequestsTable from './pages/Member/PrayerRequests/AllRequestsTable';
 
 
 function App() {
