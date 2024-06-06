@@ -68,6 +68,7 @@ function App() {
               <Route path="/events-calendar" element={<EventsCalendar />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/ProfilePage" element={<ProfilePage />} />
+              <Route path="/PrayerTable" element={<PrayerTable/>} />
             </Routes>
           </DefaultLayout>
         </div>
