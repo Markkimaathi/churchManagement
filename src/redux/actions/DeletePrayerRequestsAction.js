@@ -1,8 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const deletePrayerRequest = createAsyncThunk('fetch/deletePrayerRequest', async (myForm, id) => {
-  try {
-    const API_ENDPOINT_URL = `http://localhost:81/api/PrayerRequests/Delete/${id}`;
+export const DeletePrayerRequests = createAsyncThunk( 'fetch/DeletePrayerRequests', async ({ myForm, id }, { rejectWithValue }) => {
+    try {
+      const API_ENDPOINT_URL = `http://localhost:81/api/PrayerRequests/Delete/${id}`;
+
     const response = await fetch(API_ENDPOINT_URL, {
       method: 'DELETE',
       headers: {
