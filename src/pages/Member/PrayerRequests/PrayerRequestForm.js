@@ -29,11 +29,11 @@ const PrayerRequestForm = ({ onSubmitSuccess }) => {
         event.preventDefault();
 
         const myForm = {
-            id: 0,
+            PrayerRequesID: 0,
             title,
             description,
-            createdBy: user,
-            date: new Date(requestDate).toISOString(),
+            requestDate: new Date(requestDate).toISOString(),
+            requestedBy: user,
             timeCreated: new Date().toISOString(),
         };
 
