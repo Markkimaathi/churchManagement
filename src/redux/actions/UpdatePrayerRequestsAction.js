@@ -2,9 +2,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 
   
-  export const UpdateAnnouncementDetails = createAsyncThunk('fetch/UpdateAnnouncementDetails', async ({myForm, id}) => {
+  export const UpdatePrayerRequetsDetails = createAsyncThunk('fetch/UpdatePrayerRequestsDetails', async ({myForm, id}) => {
     try {
-      const API_ENDPOINT_URL = `http://localhost:81/api/Announcements/${id}`;
+      const API_ENDPOINT_URL = `http://localhost:81/api/PrayerRequests/Update/${id}`;
 
       const response = await fetch(API_ENDPOINT_URL, {
         method: 'PUT',
@@ -27,6 +27,3 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
       throw new Error(`Error during the PUT request: ${error.message}`);
     }
   });
-
-
-    
