@@ -7,18 +7,20 @@ import {
   TableRow,
   TableCell,
   Paper,
-  Button
+  Button,
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllPrayerRequests } from '../../../redux/actions/PrayerRequestsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import PrayerRequestForm from './PrayerRequestForm';
+import UpdatePrayerRequests from './UpdatePrayerRequests'
 import './PrayerRequestsForm.css';
 
 export const AllRequestsTable = () => {
   const { allPrayerRequests, error, loading } = useSelector((state) => state.PrayerRequests);
   const dispatch = useDispatch();
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [selectedRequestId, setSelectedRequestId] = useState(null); 
 
   useEffect(() => {
     dispatch(GetAllPrayerRequests());
@@ -26,11 +28,11 @@ export const AllRequestsTable = () => {
 
   const formatDate = (dateString) => {
     if (!dateString) {
-      return '';  
+      return '';
     }
     const date = new Date(dateString);
     if (isNaN(date)) {
-      return '';   
+      return '';
     }
     return date.toISOString().split('T')[0];
   };
@@ -44,12 +46,23 @@ export const AllRequestsTable = () => {
     setIsFormOpen(!isFormOpen);
   };
 
+  const handleUpdateRequest = (requestId) => {
+    setSelectedRequestId(requestId); 
+  };
+
   return (
     <div>
       <Button variant="contained" color="primary" onClick={handleAddRequestClick}>
         {isFormOpen ? 'Close Prayer Request Form' : 'Add Prayer Request'}
       </Button>
       {isFormOpen && <PrayerRequestForm onSubmitSuccess={() => setIsFormOpen(false)} />}
+      {selectedRequestId && (
+        <UpdatePrayerRequests
+          prayerRequestID={selectedRequestId}
+          prayerRequests={allPrayerRequests}
+          onClose={() => setSelectedRequestId(null)} 
+        />
+      )}
       {loading ? (
         <LoaderComponent />
       ) : (
@@ -63,6 +76,7 @@ export const AllRequestsTable = () => {
                 <TableCell>RequestDate</TableCell>
                 <TableCell>RequestedBy</TableCell>
                 <TableCell>TimeCreated</TableCell>
+                <TableCell>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -77,6 +91,15 @@ export const AllRequestsTable = () => {
                   <TableCell>{formatDate(row.requestDate)}</TableCell>
                   <TableCell>{row.requestedBy}</TableCell>
                   <TableCell>{formatTime(row.timeCreated)}</TableCell>
+                  <TableCell>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      onClick={() => handleUpdateRequest(row.prayerRequestID)}
+                    >
+                      Update
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

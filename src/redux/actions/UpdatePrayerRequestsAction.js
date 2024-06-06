@@ -1,7 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-
-  
   export const UpdatePrayerRequetsDetails = createAsyncThunk('fetch/UpdatePrayerRequestsDetails', async ({myForm, id}) => {
     try {
       const API_ENDPOINT_URL = `http://localhost:81/api/PrayerRequests/Update/${id}`;
