@@ -23,7 +23,7 @@ const EventInfoTable = ({ eventId, events, onClose }) => {
   const [timeModified, setTimeModified] = useState('');
   const dispatch = useDispatch();
 
-  const user = localStorage.getItem('EventID')
+  const user = localStorage.getItem('EventID');
 
   useEffect(() => {
     const eventToUpdate = events.find(event => event.eventID === eventId);

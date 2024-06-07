@@ -84,13 +84,13 @@ export const AllEventsTable = () => {
             <TableBody>
               {allEvents.map((row) => (
                 <TableRow
-                  key={row.id}
+                  key={row.eventID} 
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell>{row.eventId}</TableCell>
+                  <TableCell>{row.eventID}</TableCell>
                   <TableCell>{row.title}</TableCell>
                   <TableCell>{row.description}</TableCell>
-                  <TableCell>{formatDate(row.date)}</TableCell>
+                  <TableCell>{formatDate(row.eventDate)}</TableCell> 
                   <TableCell>{row.location}</TableCell>
                   <TableCell>{row.createdBy}</TableCell>
                   <TableCell>{formatTime(row.timeCreated)}</TableCell>
@@ -100,7 +100,7 @@ export const AllEventsTable = () => {
                     <Button
                       variant="contained"
                       color="primary"
-                      onClick={() => handleUpdate(row.id)}
+                      onClick={() => handleUpdate(row.eventID)} 
                     >
                       Update
                     </Button>

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const DeleteEvents = createAsyncThunk( 'fetch/DeleteEvents', async ({ myForm, id }, { rejectWithValue }) => {
+export const DeleteEvents = createAsyncThunk( 'fetch/DeleteEvents', async ({myForm, id}) => {
     try {
       const API_ENDPOINT_URL = `http://localhost:81/api/Events/Delete/${id}`;
 
