@@ -49,7 +49,13 @@ export const adminSidebarData = [
     icon: FaBell,
     link: '/all-announcements',
     component: AllAnnouncementsTable
-  }
+  },
+  {
+    title: 'Events',
+    icon: BsChatDotsFill,
+    link: '/events',
+    component: Events
+  },
 ]; 
 
 

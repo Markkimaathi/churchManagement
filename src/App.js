@@ -65,6 +65,7 @@ function App() {
                   <Route path="/all-users" element={<UserTable />} />
                   <Route path="/table-announcements" element={<AnnouncementTable/>} />
                   <Route path="/all-announcements" element={<AllAnnouncementsTable/>} />
+                  <Route path="/events" element={<Events/>} />
                 </>
               )}
               <Route path="/about" element={<About />} />
