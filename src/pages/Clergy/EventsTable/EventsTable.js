@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GetAllEvents } from '../../../redux/actions/EventsAction';
 import { AddEvents } from '../../../redux/actions/AddEventsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
-import EventsInfoTable from './EventsInfoTable';
+import EventsInfoTable from './EventsInfoTable';  
 import AddEventsTable from './AddEventsTable';
 import './EventsTable.css';
 
@@ -27,34 +27,22 @@ export const AllEventsTable = () => {
     dispatch(GetAllEvents());
   }, [dispatch]);
 
-  const isValidDate = (d) => {
-    return d instanceof Date && !isNaN(d);
-  };
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    if (isValidDate(date)) {
-      return date.toISOString().split('T')[0];
-    } else {
-      return 'Invalid Date';
-    }
+    return isNaN(date.getTime()) ? 'Invalid Date' : date.toISOString().split('T')[0];
   };
 
   const formatTime = (dateString) => {
     const date = new Date(dateString);
-    if (isValidDate(date)) {
-      return date.toISOString().split('T')[1].split('.')[0];
-    } else {
-      return 'Invalid Time';
-    }
+    return isNaN(date.getTime()) ? 'Invalid Time' : date.toISOString().split('T')[1].split('.')[0];
   };
 
   const handleUpdate = (id) => {
-    setSelectedEventId(id);
+    setSelectedEventId(id);  
   };
 
   const handleCloseDialog = () => {
-    setSelectedEventId(null);
+    setSelectedEventId(null);  
   };
 
   const handleAddEvent = () => {
@@ -71,7 +59,9 @@ export const AllEventsTable = () => {
       <Button variant="contained" color="primary" onClick={handleAddEvent}>
         Add Event
       </Button>
-      {showAddEvent && <AddEventsTable onSubmit={handleAddNewEvent} />}
+      {showAddEvent && (
+        <AddEventsTable onSubmit={handleAddNewEvent} />
+      )}
       {loading ? (
         <LoaderComponent />
       ) : (
@@ -97,7 +87,7 @@ export const AllEventsTable = () => {
                   key={row.id}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell>{row.id}</TableCell>
+                  <TableCell>{row.eventId}</TableCell>
                   <TableCell>{row.title}</TableCell>
                   <TableCell>{row.description}</TableCell>
                   <TableCell>{formatDate(row.date)}</TableCell>
