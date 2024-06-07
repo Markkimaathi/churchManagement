@@ -20,6 +20,7 @@ import PrayerTable from './pages/Clergy/PrayerTable/PrayerTable';
 import AnnounceForm from './pages/Clergy/AnnouncementForm/AnnounceForm';
 import AllAnnouncementsTable from './pages/Admin/AllAnnouncements/AllAnnouncementsTable';
 import AllRequestsTable from './pages/Member/PrayerRequests/AllRequestsTable';
+import AllEventsTable from './pages/Clergy/EventsTable/EventsTable';
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
                   <Route path="/announcements" element={<AnnounceForm />} />
                   <Route path="/PrayerTable" element={<PrayerTable/>} />
                   <Route path="/clergy-profile-management" element={<ClergyProfileManagement/>} />
+                  <Route path="/all-events" element={<AllEventsTable/>} />
                 </>
               )}
               {userRole === '2' && (
