@@ -12,7 +12,7 @@ import { UpdateEventsDetails } from '../../../redux/actions/UpdateEventsAction';
 import { DeleteEvents } from '../../../redux/actions/DeleteEventsAction.js';
 import { toast } from 'react-toastify';
 
-const EventInfoTable = ({ eventId, events, onClose }) => {
+const EventsInfoTable = ({ eventId, events, onClose }) => {
   const [open, setOpen] = useState(true); 
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [title, setTitle] = useState('');
@@ -155,4 +155,4 @@ const EventInfoTable = ({ eventId, events, onClose }) => {
   );
 };
 
-export default EventInfoTable;
+export default EventsInfoTable;

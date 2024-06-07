@@ -8,20 +8,18 @@ export const UpdateEventsDetails = createAsyncThunk('fetch/UpdateEventsDetails',
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(myForm)
-    });
+      }, 
+      body: JSON.stringify(myForm)      
+    });  
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Error response data:', errorData);
-      throw new Error(`Error updating event: ${errorData.message || 'Unknown error'}`);
+    if (response.ok) {
+      const data = await response.text();
+      return data; 
+      
+    } else {
+      const data = await response.text();
+      return data; 
     }
-
-    const data = await response.json();
-    console.log('Update successful:', data);
-    return data;
-
   } catch (error) {
     console.error('Error during the PUT request:', error);
     throw new Error(`Error during the PUT request: ${error.message}`);
