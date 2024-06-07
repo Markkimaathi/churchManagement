@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './ProfilePage.css'; 
 
-
 const ProfilePage = () => {
   const [FullName, setFullName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
