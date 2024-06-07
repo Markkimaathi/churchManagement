@@ -21,6 +21,7 @@ import AnnounceForm from './pages/Clergy/AnnouncementForm/AnnounceForm';
 import AllAnnouncementsTable from './pages/Admin/AllAnnouncements/AllAnnouncementsTable';
 import AllRequestsTable from './pages/Member/PrayerRequests/AllRequestsTable';
 import AllEventsTable from './pages/Clergy/EventsTable/EventsTable';
+import Events from './pages/Member/EventTable/Events';
 
 
 function App() {
@@ -46,7 +47,8 @@ function App() {
                   <Route path="/profile-management" element={<ProfileManagement />} />
                   <Route path="/MemberTable" element={<MemberTable/>} />
                   <Route path="/PrayerTable" element={<AllRequestsTable/>} />
-                </>
+                  <Route path="/events" element={<Events/>} />
+                </> 
               )}
               {userRole === '1' && (
                 <>

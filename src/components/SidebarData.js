@@ -12,6 +12,7 @@ import AnnounceForm from '../pages/Clergy/AnnouncementForm/AnnounceForm.js';
 import AllAnnouncementsTable from '../pages/Admin/AllAnnouncements/AllAnnouncementsTable.js';
 import AllRequestsTable from '../pages/Member/PrayerRequests/AllRequestsTable.js';
 import AllEventsTable from '../pages/Clergy/EventsTable/EventsTable.js';
+import Events from '../pages/Member/EventTable/Events.js';
 
 // Define sidebar data for the admin role
 export const adminSidebarData = [
@@ -129,5 +130,11 @@ export const memberSidebarData = [
     icon: BsChatDotsFill,
     link: '/PrayerTable',
     component: AllRequestsTable
+  },
+  {
+    title: 'Events',
+    icon: BsChatDotsFill,
+    link: '/events',
+    component: Events
   },
 ];
