@@ -46,7 +46,7 @@ export const PrayerTable = () => {
         <TableContainer sx={{ maxHeight: '1500px' }} component={Paper}>
           <Table stickyHeader aria-label='simple table'>
             <TableHead>
-              <TableRow>
+              <TableRow  style={{backgroundColor:'red', color: 'white',}}>
                 <TableCell>PrayerRequestID</TableCell>
                 <TableCell>Title</TableCell>
                 <TableCell>Description</TableCell>
