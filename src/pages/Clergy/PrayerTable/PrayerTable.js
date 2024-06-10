@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GetAllPrayerRequests } from '../../../redux/actions/PrayerRequestsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import './PrayerTable.css';
+import MetaData from '../../../components/MetaData';
 
 export const PrayerTable = () => {
   const { allPrayerRequests, error, loading } = useSelector((state) => state.PrayerRequests);
@@ -40,6 +41,7 @@ export const PrayerTable = () => {
 
   return (
     <div>
+      <MetaData title="Prayers" />
       {loading ? (
         <LoaderComponent />
       ) : (

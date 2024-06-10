@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GetAllEvents } from '../../../redux/actions/EventsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import './Events.css';
+import MetaData from '../../../components/MetaData';
 
 export const AllEventsTable = () => {
   const { allEvents, error, loading } = useSelector((state) => state.Events);
@@ -33,6 +34,7 @@ export const AllEventsTable = () => {
 
   return (
     <div>
+      <MetaData title="Events" />
       {loading ? (
         <LoaderComponent />
       ) : (

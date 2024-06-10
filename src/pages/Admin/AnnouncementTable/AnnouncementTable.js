@@ -14,6 +14,7 @@ import { GetAllAnnouncements, AddAnnouncement } from '../../../redux/actions/Ann
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import AnnouncementInfoTable from './AnnouncementInfoTable'
 import AddAnnouncementTable from './AddAnnouncementTable';
+import MetaData from '../../../components/MetaData';
 import './AnnouncementTable.css';
 
 export const AllAnnouncementsTable = () => {
@@ -55,6 +56,7 @@ export const AllAnnouncementsTable = () => {
 
   return (
     <div>
+      <MetaData title="Announcements" />
       <Button variant="contained" color="primary" onClick={handleAddAnnouncement}>
         Add Announcement
       </Button>

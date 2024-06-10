@@ -12,7 +12,6 @@ import ProfileManagement from './pages/Member/ProfileManagement';
 import ClergyProfileManagement from './pages/Clergy/ClergyProfileManagement';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ProfilePage from './components/ProfilePage/ProfilePage';
 import UserTable from './pages/Admin/UserTable/UserTable';
 import AnnouncementTable from './pages/Admin/AnnouncementTable/AnnouncementTable';
 import MemberTable from './pages/Member/MemberTable/MemberTable';
@@ -71,7 +70,6 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/events-calendar" element={<EventsCalendar />} />
               <Route path="*" element={<NotFound />} />
-              <Route path="/ProfilePage" element={<ProfilePage />} />
             </Routes>
           </DefaultLayout>
         </div>

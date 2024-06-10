@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css'
+import MetaData from '../MetaData';
 const About = () => {
   
   const churchInfo = {
@@ -32,6 +33,7 @@ const user1 = parseInt(user)
 
   return (
     <div className='main-page'>
+      <MetaData title="About" />
       <h2>About {churchInfo.name}</h2>
      {user1 === 2 ?
       <p><strong>Mission:</strong> {churchInfo.mission}</p>

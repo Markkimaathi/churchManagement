@@ -16,6 +16,7 @@ import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import EventsInfoTable from './EventsInfoTable';  
 import AddEventsTable from './AddEventsTable';
 import './EventsTable.css';
+import MetaData from '../../../components/MetaData';
 
 export const AllEventsTable = () => {
   const { allEvents, error, loading } = useSelector((state) => state.Events);
@@ -56,6 +57,7 @@ export const AllEventsTable = () => {
 
   return (
     <div>
+      <MetaData title="Events" />
       <Button variant="contained" color="primary" onClick={handleAddEvent}>
         Add Event
       </Button>

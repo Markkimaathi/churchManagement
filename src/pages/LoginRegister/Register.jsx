@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import { RegisterRequest } from "../../redux/actions/LoginAction";
+import MetaData from "../../components/MetaData";
 
 export const Register = (props) => {
     const [fullName, setFullName] = useState('');
@@ -83,6 +84,7 @@ const dispatch = useDispatch();
 
     return (
         <div className="auth-form-container">
+            <MetaData title="Register Page" />
             <ToastContainer />
             <h2>Register</h2>
             <form className="register-form" onSubmit={handleSubmit}>

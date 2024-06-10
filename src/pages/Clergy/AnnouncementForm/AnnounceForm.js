@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './AnnounceForm.css';
 import { AddAnnouncement } from '../../../redux/actions/AnnouncementsAction';
 import { useDispatch } from 'react-redux';
+import MetaData from '../../../components/MetaData';
 
 const API_ENDPOINT = 'http://localhost:81/api/Announcements';
 
@@ -49,6 +50,7 @@ const user = localStorage.getItem('UserID')
 
     return (
         <form onSubmit={handleSubmit}>
+            <MetaData title="Announcement Form" />
             <h2>Announce Form</h2>
            
             <label htmlFor="title">Title:</label>

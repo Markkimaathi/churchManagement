@@ -11,6 +11,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllAnnouncements } from '../../../redux/actions/AnnouncementsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
+import MetaData from '../../../components/MetaData';
 import './AllAnnouncementsTable.css'
 
 export const AllAnnouncementsTable = () => {
@@ -33,6 +34,7 @@ export const AllAnnouncementsTable = () => {
 
   return (
     <div>
+      <MetaData title="Announcements" />
       {loading ? (
         <LoaderComponent />
       ) : (

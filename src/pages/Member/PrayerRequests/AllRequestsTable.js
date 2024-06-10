@@ -15,6 +15,7 @@ import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import PrayerRequestForm from './PrayerRequestForm';
 import UpdatePrayerRequests from './UpdatePrayerRequests'
 import './PrayerRequestsForm.css';
+import MetaData from '../../../components/MetaData';
 
 export const AllRequestsTable = () => {
   const { allPrayerRequests, error, loading } = useSelector((state) => state.PrayerRequests);
@@ -52,6 +53,7 @@ export const AllRequestsTable = () => {
 
   return (
     <div>
+      <MetaData title="Prayer Requests" />
       <Button variant="contained" color="primary" onClick={handleAddRequestClick}>
         {isFormOpen ? 'Close Prayer Request Form' : 'Add Prayer Request'}
       </Button>

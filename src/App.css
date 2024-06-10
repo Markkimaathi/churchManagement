@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #1d2634;
-  color: #9e9ea4;
+  background-color: #ebeaee;
+  color: #000000; 
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -10,16 +10,20 @@ body {
   vertical-align: middle;
   line-height: 1px;
   font-size: 20px;
-}.icon1 {
+}
+
+.icon1 {
   vertical-align: middle;
   line-height: 1px;
   font-size: 25px;
 }
+
 .icon_header {
   vertical-align: middle;
   line-height: 1px;
   font-size: 26px;
 }
+
 .icon, .icon_header {
   margin-right: 5px;
 }
@@ -61,7 +65,7 @@ body {
 #sidebar {
   grid-area: sidebar;
   height: 100%;
-  background-color: #263043;
+  background-color: #e7ecf5;
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -96,13 +100,13 @@ body {
 }
 
 .sidebar-list-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.959);
   cursor: pointer;
 }
 
 .sidebar-list-item > a {
   text-decoration: none;
-  color: #9e9ea4;
+  color: #200303;
 }
 
 .sidebar-responsive {
@@ -118,13 +122,12 @@ body {
 
 /* End Sidebar  */
 
-
-/* Main  */  
+/* Main  */
 .main-container {
   grid-area: main;
   overflow-y: auto;
   padding: 20px 20px;
-  color: rgba(255, 255, 255, 0.95);
+  color: #000000; 
 }
 
 .main-title {
@@ -147,45 +150,11 @@ body {
   border-radius: 5px;
 }
 
-.card:first-child {
-  background-color: #2962ff;
-}
 
-.card:nth-child(2) {
-  background-color: #ff6d00;
-}
-
-.card:nth-child(3) {
-  background-color: #2e7d32;
-}
-
-.card:nth-child(4) {
-  background-color: #d50000;
-}
-
-.card-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.card-inner > .card_icon {
-  font-size: 25px;
-}
-
-.charts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 60px;
-  height: 300px;
-}
 
 /* End Main  */
 
-
 /* Medium <= 992px */
-  
 @media screen and (max-width: 992px) {
   .grid-container {
     grid-template-columns: 1fr;
@@ -207,8 +176,8 @@ body {
     display: inline;
   }
 }
+
 /* Small <= 768px */
-  
 @media screen and (max-width: 768px) {
   .main-cards {
     grid-template-columns: 1fr;
@@ -223,9 +192,8 @@ body {
 }
 
 /* Extra Small <= 576px */
-
 @media screen and (max-width: 576px) {
-  .hedaer-left {
+  .header-left {
     display: none;
   }
 }

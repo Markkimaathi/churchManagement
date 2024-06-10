@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { LoginRequest } from "../../redux/actions/LoginAction";
 import { ToastContainer, toast } from 'react-toastify';
+import MetaData from "../../components/MetaData";
 
 export const Login = (props) => {
     const [phone, setphone] = useState('');
@@ -69,6 +70,7 @@ export const Login = (props) => {
     // }
     return (
         <div className="auth-form-container">
+            <MetaData title="Login Page" />
             <ToastContainer />
             <h2>Login</h2>
             <form className="login-form" onSubmit={handleSubmit}>

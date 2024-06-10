@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ClergyProfileManagement.css'; 
+import MetaData from '../../components/MetaData';
 
 const ClergyProfileManagement = () => { 
   const [member, setMember] = useState({
@@ -31,6 +32,7 @@ const ClergyProfileManagement = () => {
 
   return (
     <div className="profile-form">
+      <MetaData title="Profile Management" />
       <form>
         <label>Name:</label>
         <input type="text" name="name" value={member.name} onChange={handleInputChange} />

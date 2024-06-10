@@ -19,6 +19,7 @@ import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import UserInfoTable from './UserInfoTable'; 
 import './UserTable.css';
 import { ToastContainer } from 'react-toastify';
+import MetaData from '../../../components/MetaData';
 
 export const UserTable = () => {
   const { allUsers, error, loading } = useSelector((state) => state.Users);
@@ -45,6 +46,7 @@ export const UserTable = () => {
 
   return (
     <div>
+      <MetaData title="Users" />
       {loading ? (
         <LoaderComponent />
       ) : (

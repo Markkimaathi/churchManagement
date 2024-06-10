@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GetAllAnnouncements } from '../../../redux/actions/AnnouncementsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import './MemberTable.css';
+import MetaData from '../../../components/MetaData';
 
 export const MemberTable = () => {
   const { allAnnouncements, error, loading } = useSelector((state) => state.Announcements);
@@ -33,6 +34,7 @@ export const MemberTable = () => {
 
   return (
     <div>
+      <MetaData title="Announcements" />
       {loading ? (
         <LoaderComponent />
       ) : (

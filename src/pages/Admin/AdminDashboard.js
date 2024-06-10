@@ -4,46 +4,28 @@ import './AdminDashboard.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllUsers } from '../../redux/actions/LoginAction';
 import { Button } from '@mui/material';
-
-
+import MetaData from '../../components/MetaData';
 
 const AdminDashboard = () => { 
 
-  const { allUsers,error, loading } = useSelector((state) => state.Users);
+  const { allUsers, error, loading } = useSelector((state) => state.Users);
   const dispatch = useDispatch();
 
-
-  console.log(allUsers)
-
-
   useEffect(() => {
-    dispatch(GetAllUsers())
-    }, [dispatch]);
+    dispatch(GetAllUsers());
+  }, [dispatch]);
 
   const handlefetchdetails = () => {
-    dispatch(GetAllUsers())
-  }
-
-  const sermons = [
-    { title: 'The Power of Prayer', preacher: 'Rev. John Mark' },
-    { title: 'Faith in Times of Trouble', preacher: 'Rev. Sam Smith' },
-    { title: 'Love Your Neighbor', preacher: 'Rev. Mark Kimathi' }
-  ];
-
-  const upcomingEvents = [
-    { title: 'Community Picnic', date: 'June 15, 2024' },
-    { title: 'Bible Study Session', date: 'June 20, 2024' },
-    { title: 'Youth Camp', date: 'July 5-7, 2024' }
-  ];
+    dispatch(GetAllUsers());
+  };
 
   return (
     <main className='main-container'>
       <div className='main-title'>
+        <MetaData title="Admin Dashboard" />
         <h3>ADMIN DASHBOARD</h3>
-<Button onClick={handlefetchdetails}>Get Details</Button>
-
+        <Button onClick={handlefetchdetails}>Get Details</Button>
       </div>
-
 
       <div className='main-cards'>
         <div className='card'>
@@ -65,7 +47,7 @@ const AdminDashboard = () => {
             <h3>SERMONS</h3>
             <BsPeopleFill className='card_icon'/>
           </div>
-          <h1>{sermons.length}</h1>
+          <h1>0</h1> 
         </div>
         <div className='card'>
           <div className='card-inner'>
@@ -73,29 +55,6 @@ const AdminDashboard = () => {
             <BsFillBellFill className='card_icon'/>
           </div>
           <h1>22</h1>
-        </div>
-      </div>
-
-      <div className='additional-info'>
-        <div className='info-section'>
-          <h2>Recent Sermons</h2>
-          <ul>
-            {sermons.map((sermon, index) => (
-              <li key={index}>
-                <strong>{sermon.title}</strong> - {sermon.preacher}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className='info-section'>
-          <h2>Upcoming Events</h2>
-          <ul>
-            {upcomingEvents.map((event, index) => (
-              <li key={index}>
-                <strong>{event.title}</strong> - {event.date}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </main>
