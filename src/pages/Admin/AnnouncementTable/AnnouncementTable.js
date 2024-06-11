@@ -15,6 +15,7 @@ import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import AnnouncementInfoTable from './AnnouncementInfoTable'
 import AddAnnouncementTable from './AddAnnouncementTable';
 import MetaData from '../../../components/MetaData';
+import { Link } from 'react-router-dom';
 import './AnnouncementTable.css';
 
 export const AllAnnouncementsTable = () => {
@@ -104,6 +105,9 @@ export const AllAnnouncementsTable = () => {
               ))}
             </TableBody>
           </Table>
+          <Link to="/dashboard">
+            <Button variant="contained" color="primary">Dashboard</Button>
+          </Link>
         </TableContainer>
       )}
       {selectedAnnouncementId && (

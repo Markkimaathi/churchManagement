@@ -17,6 +17,8 @@ import EventsInfoTable from './EventsInfoTable';
 import AddEventsTable from './AddEventsTable';
 import './EventsTable.css';
 import MetaData from '../../../components/MetaData';
+import { Link } from 'react-router-dom';
+
 
 export const AllEventsTable = () => {
   const { allEvents, error, loading } = useSelector((state) => state.Events);
@@ -111,6 +113,9 @@ export const AllEventsTable = () => {
               ))}
             </TableBody>
           </Table>
+          <Link to="/dashboard">
+            <Button variant="contained" color="primary">Dashboard</Button>
+          </Link>
         </TableContainer>
       )}
       {selectedEventId && (

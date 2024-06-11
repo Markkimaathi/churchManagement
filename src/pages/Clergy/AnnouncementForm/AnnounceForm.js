@@ -3,6 +3,8 @@ import './AnnounceForm.css';
 import { AddAnnouncement } from '../../../redux/actions/AnnouncementsAction';
 import { useDispatch } from 'react-redux';
 import MetaData from '../../../components/MetaData';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 const API_ENDPOINT = 'http://localhost:81/api/Announcements';
 
@@ -77,9 +79,10 @@ const user = localStorage.getItem('UserID')
                 onChange={handleDateChange}
                 required
             />
-         
-            
             <button type="submit">Submit Announcement</button>
+            <Link to="/dashboard">
+            <Button variant="contained" color="primary">Dashboard</Button>
+          </Link>
         </form>
     );
 }   

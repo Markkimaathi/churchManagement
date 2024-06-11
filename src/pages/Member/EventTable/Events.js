@@ -13,6 +13,8 @@ import { GetAllEvents } from '../../../redux/actions/EventsAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import './Events.css';
 import MetaData from '../../../components/MetaData';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export const AllEventsTable = () => {
   const { allEvents, error, loading } = useSelector((state) => state.Events);
@@ -72,6 +74,9 @@ export const AllEventsTable = () => {
               ))}
             </TableBody>
           </Table>
+          <Link to="/dashboard">
+            <Button variant="contained" color="primary">Dashboard</Button>
+          </Link>
         </TableContainer>
       )}
     </div>

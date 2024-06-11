@@ -13,6 +13,8 @@ import { GetAllAnnouncements } from '../../../redux/actions/AnnouncementsAction'
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import './MemberTable.css';
 import MetaData from '../../../components/MetaData';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export const MemberTable = () => {
   const { allAnnouncements, error, loading } = useSelector((state) => state.Announcements);
@@ -66,6 +68,9 @@ export const MemberTable = () => {
               ))}
             </TableBody>
           </Table>
+          <Link to="/dashboard">
+            <Button variant="contained" color="primary">Dashboard</Button>
+          </Link>
         </TableContainer>
       )}
     </div>

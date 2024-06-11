@@ -2,6 +2,8 @@ import React from 'react';
 import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsFillBellFill } from 'react-icons/bs';
 import './MemberDashboard.css';
 import MetaData from '../../components/MetaData';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 function MemberDashboard() {
   
@@ -20,17 +22,23 @@ function MemberDashboard() {
       <div className='main-cards'>
         <div className='card'>
           <div className='card-inner'>
-            <h3>UPCOMING EVENTS</h3>
+            <h3>EVENTS</h3>
             <BsFillGrid3X3GapFill className='card_icon'/>
           </div>
           <h1>{membersCount}</h1>
+          <Link to="/events">
+            <Button variant="contained" color="primary">Events</Button>
+          </Link>
         </div>
         <div className='card'>
           <div className='card-inner'>
-            <h3>SERMONS</h3>
+            <h3>ANNOUNCEMENTS</h3>
             <BsFillArchiveFill className='card_icon'/>
           </div>
           <h1>{eventsCount}</h1>
+          <Link to="/Member-table">
+            <Button variant="contained" color="primary">Announcements</Button>
+          </Link>
         </div>
         <div className='card'>
           <div className='card-inner'>
@@ -38,6 +46,9 @@ function MemberDashboard() {
             <BsFillBellFill className='card_icon'/>
           </div>
           <h1>{prayerRequestsCount}</h1>
+          <Link to="/PrayerTable">
+            <Button variant="contained" color="primary">Prayer Requests</Button>
+          </Link>
         </div>
       </div>
     </main>

@@ -14,6 +14,8 @@ import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import { ToastContainer } from 'react-toastify';
 import MetaData from '../../../components/MetaData';
 import './Members.css';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export const MembersTable = () => {
   const { allMembers, error, loading } = useSelector((state) => state.Members);
@@ -61,6 +63,9 @@ export const MembersTable = () => {
                 ))}
               </TableBody>
             </Table>
+            <Link to="/dashboard">
+            <Button variant="contained" color="primary">Dashboard</Button>
+          </Link>
           </TableContainer>
         </>
       )}

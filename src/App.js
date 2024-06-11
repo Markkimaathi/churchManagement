@@ -46,7 +46,7 @@ function App() {
                 <>
                   <Route path="/dashboard" element={<MemberDashboard />} />
                   <Route path="/profile-management" element={<ProfileManagement />} />
-                  <Route path="/MemberTable" element={<MemberTable/>} />
+                  <Route path="/Member-table" element={<MemberTable/>} />
                   <Route path="/PrayerTable" element={<AllRequestsTable/>} />
                   <Route path="/events" element={<Events/>} />
                 </> 

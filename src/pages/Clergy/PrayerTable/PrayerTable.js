@@ -13,6 +13,8 @@ import { GetAllPrayerRequests } from '../../../redux/actions/PrayerRequestsActio
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import './PrayerTable.css';
 import MetaData from '../../../components/MetaData';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export const PrayerTable = () => {
   const { allPrayerRequests, error, loading } = useSelector((state) => state.PrayerRequests);
@@ -73,6 +75,9 @@ export const PrayerTable = () => {
               ))}
             </TableBody>
           </Table>
+          <Link to="/dashboard">
+            <Button variant="contained" color="primary">Dashboard</Button>
+          </Link>
         </TableContainer>
       )}
     </div>

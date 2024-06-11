@@ -149,7 +149,7 @@ export const memberSidebarData = [
   {
     title: 'Announcements',
     icon: FaBell,
-    link: '/MemberTable',
+    link: '/Member-table',
     component: MemberTable
   },
   {

@@ -14,6 +14,8 @@ import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import { ToastContainer } from 'react-toastify';
 import MetaData from '../../../components/MetaData';
 import './Clergies.css';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export const ClergyTable = () => {
   const { allClergies, error, loading } = useSelector((state) => state.Clergies);
@@ -61,6 +63,9 @@ export const ClergyTable = () => {
                 ))}
               </TableBody>
             </Table>
+            <Link to="/dashboard">
+            <Button variant="contained" color="primary">Dashboard</Button>
+          </Link>
           </TableContainer>
         </>
       )}
