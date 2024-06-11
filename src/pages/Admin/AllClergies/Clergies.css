@@ -1,0 +1,35 @@
+.tableContainer {
+    max-height: 1500px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table {
+    min-width: 650px;
+  }
+  
+  .tableHead {
+    background-color: #f5f5f5;
+  }
+  
+  .tableRow {
+    &:nth-of-type(odd) {
+      background-color: #fafafa;
+    }
+  }
+  
+  .tableCell {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+  
+  .tableCellCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tableCell img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
