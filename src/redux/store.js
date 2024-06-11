@@ -1,4 +1,4 @@
- import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import getUsersReducer from './reducers/GetUsersReducer';
 import getAnnouncementsReducer from './reducers/GetAnnouncementsReducer';
 import GetPrayerRequestsReducer from './reducers/GetPrayerRequestsReducer';
