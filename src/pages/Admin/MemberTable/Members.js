@@ -13,6 +13,7 @@ import { GetAllMembers } from '../../../redux/actions/MembersAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import { ToastContainer } from 'react-toastify';
 import MetaData from '../../../components/MetaData';
+import './MemberTable.css';
 
 export const MemberTable = () => {
   const { allMembers, error, loading } = useSelector((state) => state.Members);

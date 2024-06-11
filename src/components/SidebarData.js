@@ -14,6 +14,7 @@ import AllRequestsTable from '../pages/Member/PrayerRequests/AllRequestsTable.js
 import AllEventsTable from '../pages/Clergy/EventsTable/EventsTable.js';
 import Events from '../pages/Member/EventTable/Events.js';
 
+
 // Define sidebar data for the admin role
 export const adminSidebarData = [
   {
