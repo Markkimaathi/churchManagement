@@ -20,6 +20,7 @@ import UserInfoTable from './UserInfoTable';
 import './UserTable.css';
 import { ToastContainer } from 'react-toastify';
 import MetaData from '../../../components/MetaData';
+import { Link } from 'react-router-dom';
 
 export const UserTable = () => {
   const { allUsers, error, loading } = useSelector((state) => state.Users);
@@ -93,6 +94,9 @@ export const UserTable = () => {
                 ))}
               </TableBody>
             </Table>
+            <Link to="/dashboard">
+            <Button variant="contained" color="primary">Dashboard</Button>
+          </Link>
           </TableContainer>
 
         

@@ -6,11 +6,12 @@ import { GetAllClergies } from '../../redux/actions/ClergyAction';
 import { GetAllMembers } from '../../redux/actions/MembersAction';
 import { Button } from '@mui/material';
 import MetaData from '../../components/MetaData';
-import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill } from 'react-icons/bs';
+import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsPersonFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
+  const { allUsers } = useSelector((state) => state.Users);
   const { allMembers } = useSelector((state) => state.Members);
   const { allClergies } = useSelector((state) => state.Clergies);
   const { allAdmins } = useSelector((state) => state.Admins);
@@ -24,25 +25,28 @@ const AdminDashboard = () => {
     dispatch(GetAllMembers());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(GetAllClergies());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(GetAllAdmins());
-  }, [dispatch]);
- 
-
   const getMembersCount = () => {
     return allMembers ? allMembers.filter(user => user.type === '0').length : 0;
   };
+
+  useEffect(() => {
+    dispatch(GetAllClergies());
+  }, [dispatch]);
 
   const getClergiesCount = () => {
     return allClergies ? allClergies.filter(user => user.type === '1').length : 0;
   };
 
+  useEffect(() => {
+    dispatch(GetAllAdmins());
+  }, [dispatch]);
+
   const getAdminsCount = () => {
     return allAdmins ? allAdmins.filter(user => user.type === '2').length : 0;
+  };
+
+  const getUsersCount = () => {
+    return allUsers ? allUsers.length : 0;
   };
 
   return (
@@ -77,10 +81,20 @@ const AdminDashboard = () => {
           <div className='card-inner'>
             <h3>ADMINS</h3>
             <BsPeopleFill className='card_icon'/>
-            </div>
+          </div>
           <h1>{getAdminsCount()}</h1>
           <Link to="/all-admins">
             <Button variant="contained" color="primary">Admins</Button>
+          </Link>
+        </div>
+        <div className='card'>
+          <div className='card-inner'>
+            <h3>USERS</h3>
+            <BsPersonFill className='card_icon'/>
+          </div>
+          <h1>{getUsersCount()}</h1>
+          <Link to="/all-users">
+            <Button variant="contained" color="primary">Users</Button>
           </Link>
         </div>
       </div>
