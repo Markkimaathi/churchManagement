@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill } from 'react-icons/bs';
-import './AdminDashboard.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllUsers } from '../../redux/actions/LoginAction';
 import { Button } from '@mui/material';
 import MetaData from '../../components/MetaData';
+import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import './AdminDashboard.css';
 
-const AdminDashboard = () => { 
-
+const AdminDashboard = () => {
   const { allUsers, error, loading } = useSelector((state) => state.Users);
   const dispatch = useDispatch();
 
@@ -17,6 +17,10 @@ const AdminDashboard = () => {
 
   const handlefetchdetails = () => {
     dispatch(GetAllUsers());
+  };
+
+  const getMembersCount = () => {
+    return allUsers ? allUsers.length : 0;
   };
 
   return (
@@ -33,7 +37,10 @@ const AdminDashboard = () => {
             <h3>MEMBERS</h3>
             <BsFillArchiveFill className='card_icon'/>
           </div>
-          <h1>320</h1>
+          <h1>{getMembersCount()}</h1>
+          <Link to="/all-members">
+            <Button variant="contained" color="primary">Members</Button>
+          </Link>
         </div>
         <div className='card'>
           <div className='card-inner'>
