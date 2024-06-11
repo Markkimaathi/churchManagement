@@ -13,9 +13,9 @@ import { GetAllMembers } from '../../../redux/actions/MembersAction';
 import LoaderComponent from '../../../components/Loader/LoaderComponent';
 import { ToastContainer } from 'react-toastify';
 import MetaData from '../../../components/MetaData';
-import './MemberTable.css';
+import './MembersTable.css';
 
-export const MemberTable = () => {
+export const MembersTable = () => {
   const { allMembers, error, loading } = useSelector((state) => state.Members);
   const dispatch = useDispatch();
 
@@ -68,4 +68,4 @@ export const MemberTable = () => {
   );
 };
 
-export default MemberTable;
+export default MembersTable;
