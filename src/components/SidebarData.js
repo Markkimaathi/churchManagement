@@ -13,7 +13,7 @@ import AllAnnouncementsTable from '../pages/Admin/AllAnnouncements/AllAnnounceme
 import AllRequestsTable from '../pages/Member/PrayerRequests/AllRequestsTable.js';
 import AllEventsTable from '../pages/Clergy/EventsTable/EventsTable.js';
 import Events from '../pages/Member/EventTable/Events.js';
-import AllMembersTable from '../pages/Clergy/'
+import AllMembersTable from '../pages/Admin/AllMembers/AllMembersTable.js';
 
 // Define sidebar data for the admin role
 export const adminSidebarData = [
@@ -58,7 +58,7 @@ export const adminSidebarData = [
     component: Events
   },
   {
-    title: 'AllMembers',
+    title: 'All Members',
     icon: FaTable,
     link:'all-members',
     component: AllMembersTable
