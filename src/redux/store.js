@@ -4,6 +4,7 @@ import getAnnouncementsReducer from './reducers/GetAnnouncementsReducer';
 import GetPrayerRequestsReducer from './reducers/GetPrayerRequestsReducer';
 import GetEventsReducer from './reducers/GetEventsReducer';
 import GetMembersReducer from './reducers/GetMembersReducer';
+import GetClergiesReducer from './reducers/GetClergiesReducer';
 
 const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
     Announcements: getAnnouncementsReducer,
     PrayerRequests: GetPrayerRequestsReducer,
     Events: GetEventsReducer,
-    Members: GetMembersReducer
+    Members: GetMembersReducer,
+    Clergies: GetClergiesReducer
   }
 });
 
