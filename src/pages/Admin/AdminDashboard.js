@@ -26,7 +26,7 @@ const AdminDashboard = () => {
   }, [dispatch]);
 
   const getMembersCount = () => {
-    return allMembers ? allMembers.filter(user => user.type === '0').length : 0;
+    return allMembers ? allMembers.length : 0;
   };
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const AdminDashboard = () => {
   }, [dispatch]);
 
   const getClergiesCount = () => {
-    return allClergies ? allClergies.filter(user => user.type === '1').length : 0;
+    return allClergies ? allClergies.length : 0;
   };
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const AdminDashboard = () => {
   }, [dispatch]);
 
   const getAdminsCount = () => {
-    return allAdmins ? allAdmins.filter(user => user.type === '2').length : 0;
+    return allAdmins ? allAdmins.length : 0;
   };
 
   const getUsersCount = () => {
