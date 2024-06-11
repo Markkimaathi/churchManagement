@@ -15,6 +15,7 @@ import AllEventsTable from '../pages/Clergy/EventsTable/EventsTable.js';
 import Events from '../pages/Member/EventTable/Events.js';
 import AllMembersTable from '../pages/Admin/AllMembers/AllMembersTable.js';
 import AllClergiesTable from '../pages/Admin/AllClergies/AllClergiesTable.js';
+import AllAdminsTable from '../pages/Admin/AllAdmins/AllAdminsTable.js';
 
 // Define sidebar data for the admin role
 export const adminSidebarData = [
@@ -69,6 +70,12 @@ export const adminSidebarData = [
     icon: FaTable,
     link:'all-clergies',
     component: AllClergiesTable
+  },
+  {
+    title: 'All Admins',
+    icon: BsGrid1X2Fill,
+    link:'all-admins',
+    component: AllAdminsTable
   }
 ]; 
 

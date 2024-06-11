@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllUsers } from '../../redux/actions/LoginAction';
+import { GetAllAdmins } from '../../redux/actions/AdminsAction';
+import { GetAllClergies } from '../../redux/actions/ClergyAction';
+import { GetAllMembers } from '../../redux/actions/MembersAction';
 import { Button } from '@mui/material';
 import MetaData from '../../components/MetaData';
 import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill } from 'react-icons/bs';
@@ -8,20 +11,38 @@ import { Link } from 'react-router-dom';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
-  const { allUsers, error, loading } = useSelector((state) => state.Users);
+  const { allMembers } = useSelector((state) => state.Members);
+  const { allClergies } = useSelector((state) => state.Clergies);
+  const { allAdmins } = useSelector((state) => state.Admins);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(GetAllUsers());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(GetAllMembers());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(GetAllClergies());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(GetAllAdmins());
+  }, [dispatch]);
+ 
 
   const getMembersCount = () => {
-    return allUsers ? allUsers.length : 0;
+    return allMembers ? allMembers.filter(user => user.type === '0').length : 0;
   };
 
   const getClergiesCount = () => {
-    return allUsers ? allUsers.filter(user => user.role === 'clergies').length : 0;
+    return allClergies ? allClergies.filter(user => user.type === '1').length : 0;
+  };
+
+  const getAdminsCount = () => {
+    return allAdmins ? allAdmins.filter(user => user.type === '2').length : 0;
   };
 
   return (
@@ -56,8 +77,11 @@ const AdminDashboard = () => {
           <div className='card-inner'>
             <h3>ADMINS</h3>
             <BsPeopleFill className='card_icon'/>
-          </div>
-          <h1>0</h1> 
+            </div>
+          <h1>{getAdminsCount()}</h1>
+          <Link to="/all-admins">
+            <Button variant="contained" color="primary">Admins</Button>
+          </Link>
         </div>
       </div>
     </main>

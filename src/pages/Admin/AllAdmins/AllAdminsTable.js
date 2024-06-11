@@ -20,7 +20,7 @@ export const AdminTable = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(GetAllClergies());
+    dispatch(GetAllAdmins());
   }, [dispatch]);
 
   return (

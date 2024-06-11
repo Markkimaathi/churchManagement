@@ -23,6 +23,7 @@ import AllEventsTable from './pages/Clergy/EventsTable/EventsTable';
 import Events from './pages/Member/EventTable/Events';
 import AllMembersTable from './pages/Admin/AllMembers/AllMembersTable';
 import AllClergiesTable from './pages/Admin/AllClergies/AllClergiesTable';
+import AllAdminsTable from './pages/Admin/AllAdmins/AllAdminsTable';
 
 function App() {
   const [userRole, setUserRole] = useState(() => localStorage.getItem('userRole') || null); 
@@ -68,6 +69,7 @@ function App() {
                   <Route path="/events" element={<Events/>} />
                   <Route path="/all-members" element={<AllMembersTable/>} />
                   <Route path="/all-clergies" element={<AllClergiesTable/>} />
+                  <Route path="/all-admins" element={<AllAdminsTable/>} />
                 </>
               )}
               <Route path="/about" element={<About />} />
