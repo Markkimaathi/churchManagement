@@ -15,12 +15,13 @@ const AdminDashboard = () => {
     dispatch(GetAllUsers());
   }, [dispatch]);
 
-  const handlefetchdetails = () => {
-    dispatch(GetAllUsers());
-  };
 
   const getMembersCount = () => {
     return allUsers ? allUsers.length : 0;
+  };
+
+  const getClergiesCount = () => {
+    return allUsers ? allUsers.filter(user => user.role === 'clergies').length : 0;
   };
 
   return (
@@ -28,7 +29,6 @@ const AdminDashboard = () => {
       <div className='main-title'>
         <MetaData title="Admin Dashboard" />
         <h3>ADMIN DASHBOARD</h3>
-        <Button onClick={handlefetchdetails}>Get Details</Button>
       </div>
 
       <div className='main-cards'>
@@ -44,10 +44,13 @@ const AdminDashboard = () => {
         </div>
         <div className='card'>
           <div className='card-inner'>
-            <h3>CLERGY </h3>
+            <h3>CLERGIES</h3>
             <BsFillGrid3X3GapFill className='card_icon'/>
           </div>
-          <h1>15</h1>
+          <h1>{getClergiesCount()}</h1>
+          <Link to="/all-clergies">
+            <Button variant="contained" color="primary">Clergies</Button>
+          </Link>
         </div>
         <div className='card'>
           <div className='card-inner'>

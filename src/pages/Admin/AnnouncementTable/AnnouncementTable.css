@@ -1,13 +1,15 @@
 .TableContainer {
-    background-color: black; 
+    background-color: rgb(37, 2, 2); 
     max-height: 600px;
     overflow-y: auto;
     border: 2px solid black; 
+    color: rgba(0, 0, 0, 0.95); 
 }
 
 .TableHead {
-    background-color: #f0f0f0;
+    background-color: #180000;
     border: 1px solid black; 
+    color: rgba(0, 0, 0, 0.95);
 }
 
 .TableCell {
@@ -16,7 +18,7 @@
 }
 
 .TableRow:nth-of-type(even) {
-    background-color: #f9f9f9;
+    background-color: #110000;
     border: 1px solid black; 
 }
 
