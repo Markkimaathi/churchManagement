@@ -16,7 +16,7 @@ export const GetAllEvents = createAsyncThunk('fetch/AllEvents', async () => {
         return data;
       } else {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to events');
+        throw new Error(errorData.message || 'Failed to get events');
       }
     } catch (error) {
       console.error('Error during the GET request:', error);

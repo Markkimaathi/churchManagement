@@ -44,17 +44,10 @@ const AdminDashboard = () => {
         </div>
         <div className='card'>
           <div className='card-inner'>
-            <h3>SERMONS</h3>
+            <h3>ADMINS</h3>
             <BsPeopleFill className='card_icon'/>
           </div>
           <h1>0</h1> 
-        </div>
-        <div className='card'>
-          <div className='card-inner'>
-            <h3>PRAYER REQUESTS</h3>
-            <BsFillBellFill className='card_icon'/>
-          </div>
-          <h1>22</h1>
         </div>
       </div>
     </main>
