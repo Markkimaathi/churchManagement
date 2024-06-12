@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="footer-wrapper">
       <footer>
-        <p>This is a test footer.</p>
+        <p>All rights preserved.</p>
       </footer>
     </div>
   );

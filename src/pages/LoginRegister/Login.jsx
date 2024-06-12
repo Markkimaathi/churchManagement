@@ -9,7 +9,6 @@ export const Login = (props) => {
     const [pass, setPass] = useState('');
     const dispatch = useDispatch();
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const myForm = {
@@ -20,6 +19,14 @@ export const Login = (props) => {
         try {
             const response = await dispatch(LoginRequest(myForm));
             // console.log(response.payload);
+
+            if (response.payload === null) {
+                toast.error('Login failed. Please try again.');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+                return;
+            }
 
             if (typeof response.payload === 'object' && response.payload !== null) {
                 const userRole = await response.payload.userType;
@@ -34,11 +41,11 @@ export const Login = (props) => {
                 // console.log(userRole);
             } else if (typeof response.payload === 'string') {
                 if (response.payload.includes('User not found')) {
-                    toast.info('User not found. Use a valid Phone number')
+                    toast.info('User not found. Use a valid Phone number');
                     console.log('User not found');
                 } else if (response.payload.includes('Invalid phone number or password.')) {
+                    toast.error('Invalid phone number or password.');
                     console.log('Invalid phone number or password.');
-
                 }
             }
         } catch (error) {
@@ -47,27 +54,6 @@ export const Login = (props) => {
         }
     }
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault(); 
-    //     const enteredNumber = parseInt(phone);
-    //     let userRole;
-    //     switch (enteredNumber) {
-    //         case 0:
-    //             userRole = 0;
-    //             break;
-    //         case 1:
-    //             userRole = 1;
-    //             break;
-    //         case 2:
-    //             userRole = 2;
-    //             break;
-    //         default:
-    //             return;
-    //     }
-    //     await localStorage.setItem('userRole', userRole);      
-    //     props.setUserRole(userRole); 
-    //     await window.location.reload();
-    // }
     return (
         <div className="auth-form-container">
             <MetaData title="Login Page" />

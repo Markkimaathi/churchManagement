@@ -90,7 +90,7 @@ const AdminDashboard = () => {
         <div className='card'>
           <div className='card-inner'>
             <h3>USERS</h3>
-            <BsPersonFill className='card_icon'/>
+            <BsPeopleFill className='card_icon'/>
           </div>
           <h1>{getUsersCount()}</h1>
           <Link to="/all-users">
