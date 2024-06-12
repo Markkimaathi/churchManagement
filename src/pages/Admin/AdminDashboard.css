@@ -32,6 +32,7 @@
   border-radius: 8px;
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  height: 150px; 
 }
 
 .card:nth-child(1) {
@@ -50,9 +51,20 @@
   background-color: #d50000;
 }
 
+.card:nth-child(5) {
+  background-color: #110ddd;
+}
+
+.card:nth-child(6) {
+  background-color: #000000;
+}
+
 .card h3 {
   font-size: 18px;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card h1 {
